@@ -8,34 +8,44 @@
     "posted_at_utc": "2026-09-27T01:06:18.557631+00:00"
   },
   "2026-09-27-14-00-Instagram": {
-    "status": "error",
+    "status": "posted",
     "scheduled_at_jst": "2026-09-27T14:00:00+09:00",
-    "error": "Cloudinary画像アップロード失敗 HTTP 401: {\"error\":{\"message\":\"Unknown API key \"}}",
-    "last_attempt_utc": "2026-09-28T12:12:58.804655+00:00"
+    "error": "",
+    "last_attempt_utc": "2026-09-28T12:12:58.804655+00:00",
+    "post_id": "18096807023401113",
+    "posted_at_utc": "2026-09-28T12:28:16.219478+00:00"
   },
   "2026-09-27-18-00-Instagram": {
-    "status": "error",
+    "status": "posted",
     "scheduled_at_jst": "2026-09-27T18:00:00+09:00",
-    "error": "Cloudinary画像アップロード失敗 HTTP 401: {\"error\":{\"message\":\"Unknown API key \"}}",
-    "last_attempt_utc": "2026-09-28T12:12:59.287722+00:00"
+    "error": "",
+    "last_attempt_utc": "2026-09-28T12:12:59.287722+00:00",
+    "post_id": "17977578612066749",
+    "posted_at_utc": "2026-09-28T12:28:31.389000+00:00"
   },
   "2026-09-28-10-00-Instagram": {
-    "status": "error",
+    "status": "posted",
     "scheduled_at_jst": "2026-09-28T10:00:00+09:00",
-    "error": "Cloudinary画像アップロード失敗 HTTP 401: {\"error\":{\"message\":\"Unknown API key \"}}",
-    "last_attempt_utc": "2026-09-28T12:12:59.754989+00:00"
+    "error": "",
+    "last_attempt_utc": "2026-09-28T12:12:59.754989+00:00",
+    "post_id": "18136299691651083",
+    "posted_at_utc": "2026-09-28T12:28:44.496467+00:00"
   },
   "2026-09-28-14-00-Instagram": {
-    "status": "error",
+    "status": "posted",
     "scheduled_at_jst": "2026-09-28T14:00:00+09:00",
-    "error": "Cloudinary画像アップロード失敗 HTTP 401: {\"error\":{\"message\":\"Unknown API key \"}}",
-    "last_attempt_utc": "2026-09-28T12:13:00.228464+00:00"
+    "error": "",
+    "last_attempt_utc": "2026-09-28T12:13:00.228464+00:00",
+    "post_id": "18061595702618653",
+    "posted_at_utc": "2026-09-28T12:28:57.819550+00:00"
   },
   "2026-09-28-18-00-Instagram": {
-    "status": "error",
+    "status": "posted",
     "scheduled_at_jst": "2026-09-28T18:00:00+09:00",
-    "error": "Cloudinary画像アップロード失敗 HTTP 401: {\"error\":{\"message\":\"Unknown API key \"}}",
-    "last_attempt_utc": "2026-09-28T12:13:00.697060+00:00"
+    "error": "",
+    "last_attempt_utc": "2026-09-28T12:13:00.697060+00:00",
+    "post_id": "17954310585256588",
+    "posted_at_utc": "2026-09-28T12:29:06.361960+00:00"
   },
   "2026-09-29-10-00-Instagram": {
     "status": "planned",
