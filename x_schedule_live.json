@@ -30,16 +30,16 @@
     "post_key": "2026-09-28-10-00-X",
     "image_path": "SNS投稿用画像/9月分SNS用/2026-09-28_X_01.png",
     "scheduled_at": "2026-09-28T10:00:00+09:00",
-    "status": "planned",
-    "error": ""
+    "status": "error",
+    "error": "画像が見つかりません: /home/runner/work/grand-ideal-sns-auto-post/grand-ideal-sns-auto-post/SNS投稿用画像/9月分SNS用/2026-09-28_X_01.png"
   },
   {
     "text": "自己破産をしたら住宅ローンはどうなる？免責の時期、信用情報の登録状況、現在の収入と支出、他の借入状況を確認することが基本です。審査結果を決めつけず、事実を整理して専門家に相談しましょう。 #住宅ローン #住宅購入",
     "post_key": "2026-09-28-14-00-X",
     "image_path": "SNS投稿用画像/9月分SNS用/2026-09-28_X_02.png",
     "scheduled_at": "2026-09-28T14:00:00+09:00",
-    "status": "planned",
-    "error": ""
+    "status": "error",
+    "error": "画像が見つかりません: /home/runner/work/grand-ideal-sns-auto-post/grand-ideal-sns-auto-post/SNS投稿用画像/9月分SNS用/2026-09-28_X_02.png"
   },
   {
     "text": "派遣社員でも住宅ローンを検討できる？雇用形態だけで判断せず、契約期間・更新状況・勤続期間・収入の継続性・他の借入を確認します。毎月無理なく返せる金額を基準に、家計全体を整理しましょう。 #住宅ローン #マイホーム",
