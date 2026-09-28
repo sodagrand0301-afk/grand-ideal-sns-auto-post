@@ -10,32 +10,32 @@
   "2026-09-27-14-00-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-09-27T14:00:00+09:00",
-    "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-09-28T11:12:26.048965+00:00"
+    "error": "JPEG画像が見つかりません: SNS投稿用画像\\9月分SNS用\\2026-09-27_X_02.jpg",
+    "last_attempt_utc": "2026-09-28T11:18:28.473162+00:00"
   },
   "2026-09-27-18-00-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-09-27T18:00:00+09:00",
-    "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-09-28T11:12:26.448740+00:00"
+    "error": "JPEG画像が見つかりません: SNS投稿用画像\\9月分SNS用\\2026-09-27_X_03.jpg",
+    "last_attempt_utc": "2026-09-28T11:18:28.473240+00:00"
   },
   "2026-09-28-10-00-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-09-28T10:00:00+09:00",
-    "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-09-28T11:12:26.795763+00:00"
+    "error": "JPEG画像が見つかりません: SNS投稿用画像\\9月分SNS用\\2026-09-28_X_01.jpg",
+    "last_attempt_utc": "2026-09-28T11:18:28.473287+00:00"
   },
   "2026-09-28-14-00-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-09-28T14:00:00+09:00",
-    "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-09-28T11:12:27.087326+00:00"
+    "error": "JPEG画像が見つかりません: SNS投稿用画像\\9月分SNS用\\2026-09-28_X_02.jpg",
+    "last_attempt_utc": "2026-09-28T11:18:28.473333+00:00"
   },
   "2026-09-28-18-00-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-09-28T18:00:00+09:00",
-    "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-09-28T11:12:27.390046+00:00"
+    "error": "JPEG画像が見つかりません: SNS投稿用画像\\9月分SNS用\\2026-09-28_X_03.jpg",
+    "last_attempt_utc": "2026-09-28T11:18:28.473373+00:00"
   },
   "2026-09-29-10-00-Instagram": {
     "status": "planned",
