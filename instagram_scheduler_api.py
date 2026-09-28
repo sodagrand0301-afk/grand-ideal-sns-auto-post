@@ -7,6 +7,7 @@ import os
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import quote
 
 import requests
 import truststore
@@ -51,8 +52,7 @@ def caption(row: dict[str, str]) -> str:
 def publish(row: dict[str, str], token: str) -> str:
     image_name = Path(row["image_path"].replace("/", "\\")).name
     source_url = f"{PUBLIC_BASE_URL.rstrip('/')}/{image_name}"
-    # 元画像は3:4のため、Instagram許容範囲の4:5へ整形して取得させる。
-    image_url = f"https://wsrv.nl/?url={source_url}&w=1080&h=1350&fit=cover&output=png"
+    image_url = f"https://wsrv.nl/?url={quote(source_url, safe='')}&w=1080&h=1350&fit=cover&output=png"
     created = safe_post(api_url(f"{IG_USER_ID}/media"), data={"image_url": image_url, "caption": caption(row), "access_token": token}, timeout=45)
     if not created.ok:
         raise RuntimeError(f"メディア作成失敗 HTTP {created.status_code}: {created.text[:300]}")
@@ -89,8 +89,7 @@ def main() -> None:
         item = state.setdefault(key, {"status": "planned", "scheduled_at_jst": row["scheduled_at_jst"]})
         if item.get("status") == "posted":
             continue
-        scheduled = datetime.fromisoformat(row["scheduled_at_jst"]).astimezone(timezone.utc)
-        if scheduled > now:
+        if datetime.fromisoformat(row["scheduled_at_jst"]).astimezone(timezone.utc) > now:
             continue
         try:
             post_id = publish(row, token)
