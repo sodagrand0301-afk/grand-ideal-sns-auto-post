@@ -7,7 +7,6 @@ import os
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import quote
 
 import requests
 import truststore
@@ -50,9 +49,8 @@ def caption(row: dict[str, str]) -> str:
     return row["text"].strip()
 
 def publish(row: dict[str, str], token: str) -> str:
-    image_name = Path(row["image_path"].replace("/", "\\")).name
-    source_url = f"{PUBLIC_BASE_URL.rstrip('/')}/{image_name}"
-    image_url = f"https://wsrv.nl/?url={quote(source_url, safe='')}&w=1080&h=1350&fit=cover&output=png"
+    image_name = Path(row["image_path"].replace("/", chr(92))).name
+    image_url = f"{PUBLIC_BASE_URL.rstrip('/')}/instagram_media/{image_name}"
     created = safe_post(api_url(f"{IG_USER_ID}/media"), data={"image_url": image_url, "caption": caption(row), "access_token": token}, timeout=45)
     if not created.ok:
         raise RuntimeError(f"メディア作成失敗 HTTP {created.status_code}: {created.text[:300]}")
