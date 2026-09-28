@@ -11,31 +11,31 @@
     "status": "error",
     "scheduled_at_jst": "2026-09-27T14:00:00+09:00",
     "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-09-28T11:03:49.061290+00:00"
+    "last_attempt_utc": "2026-09-28T11:06:17.749514+00:00"
   },
   "2026-09-27-18-00-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-09-27T18:00:00+09:00",
     "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-09-28T11:03:49.512103+00:00"
+    "last_attempt_utc": "2026-09-28T11:06:18.292530+00:00"
   },
   "2026-09-28-10-00-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-09-28T10:00:00+09:00",
     "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-09-28T11:03:49.881208+00:00"
+    "last_attempt_utc": "2026-09-28T11:06:18.714437+00:00"
   },
   "2026-09-28-14-00-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-09-28T14:00:00+09:00",
     "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-09-28T11:03:50.264977+00:00"
+    "last_attempt_utc": "2026-09-28T11:06:19.236332+00:00"
   },
   "2026-09-28-18-00-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-09-28T18:00:00+09:00",
     "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-09-28T11:03:50.763776+00:00"
+    "last_attempt_utc": "2026-09-28T11:06:19.845851+00:00"
   },
   "2026-09-29-10-00-Instagram": {
     "status": "planned",
