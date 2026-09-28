@@ -7,7 +7,6 @@ import os
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import quote
 
 import requests
 import truststore
@@ -19,7 +18,7 @@ CSV_FILE = ROOT / "本番投稿台帳_2026-09-27_10-02.csv"
 STATE_FILE = ROOT / "instagram_schedule_live.json"
 IG_USER_ID = "17841431756345101"
 PUBLIC_BASE_URL = os.getenv("PUBLIC_BASE_URL", "")
-IMAGE_PROXY_BASE_URL = "https://external-content.duckduckgo.com/iu/?u="
+IMAGE_PROXY_BASE_URL = "https://raw.githubusercontent.com/sodagrand0301-afk/grand-ideal-sns-auto-post/main/instagram_media_jpg"
 
 
 def api_url(path: str) -> str:
@@ -62,8 +61,7 @@ def caption(row: dict[str, str]) -> str:
 def publish(row: dict[str, str], token: str) -> str:
     image_name = Path(row["image_path"].replace("/", "\\")).name
     image_name = Path(image_name).with_suffix(".jpg").name
-    source_url = f"https://raw.githubusercontent.com/sodagrand0301-afk/grand-ideal-sns-auto-post/main/instagram_media_jpg/{image_name}"
-    image_url = f"{IMAGE_PROXY_BASE_URL}{quote(source_url, safe='')}&f=1"
+    image_url = f"{IMAGE_PROXY_BASE_URL.rstrip('/')}/{image_name}"
     created = safe_post(
         api_url(f"{IG_USER_ID}/media"),
         data={"image_url": image_url, "caption": caption(row), "access_token": token},
