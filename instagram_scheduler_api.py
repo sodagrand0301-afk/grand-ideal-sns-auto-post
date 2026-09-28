@@ -58,10 +58,36 @@ def caption(row: dict[str, str]) -> str:
     return row["text"].strip()
 
 
+def upload_to_cloudinary(image_name: str) -> str:
+    cloud_name = os.getenv("CLOUDINARY_CLOUD_NAME", "").strip()
+    upload_preset = os.getenv("CLOUDINARY_UPLOAD_PRESET", "").strip()
+    if not cloud_name or not upload_preset:
+        raise RuntimeError("Cloudinaryの設定が不足しています。")
+    image_path = ROOT / "instagram_media_jpg" / image_name
+    if not image_path.exists():
+        raise RuntimeError(f"JPEG画像が見つかりません: {image_name}")
+    try:
+        with image_path.open("rb") as image_file:
+            uploaded = safe_post(
+                f"https://api.cloudinary.com/v1_1/{cloud_name}/image/upload",
+                files={"file": (image_name, image_file, "image/jpeg")},
+                data={"upload_preset": upload_preset, "folder": "grand-ideal-sns-auto-post"},
+                timeout=60,
+            )
+    except OSError as exc:
+        raise RuntimeError("画像ファイルの読み込みに失敗しました。") from exc
+    if not uploaded.ok:
+        raise RuntimeError(f"Cloudinary画像アップロード失敗 HTTP {uploaded.status_code}: {uploaded.text[:300]}")
+    secure_url = uploaded.json().get("secure_url")
+    if not secure_url:
+        raise RuntimeError("Cloudinaryから画像URLを取得できませんでした。")
+    return secure_url
+
+
 def publish(row: dict[str, str], token: str) -> str:
     image_name = Path(row["image_path"].replace("/", "\\")).name
     image_name = Path(image_name).with_suffix(".jpg").name
-    image_url = f"{IMAGE_PROXY_BASE_URL.rstrip('/')}/{image_name}"
+    image_url = upload_to_cloudinary(image_name)
     created = safe_post(
         api_url(f"{IG_USER_ID}/media"),
         data={"image_url": image_url, "caption": caption(row), "access_token": token},
