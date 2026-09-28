@@ -1,0 +1,8 @@
+*.env
+.env
+*.key
+*.secret
+token*
+*token*
+cloudflared.exe
+__pycache__/
