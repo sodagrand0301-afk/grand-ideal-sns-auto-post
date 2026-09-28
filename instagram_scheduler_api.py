@@ -61,7 +61,8 @@ def caption(row: dict[str, str]) -> str:
 
 def publish(row: dict[str, str], token: str) -> str:
     image_name = Path(row["image_path"].replace("/", "\\")).name
-    source_url = f"https://sodagrand0301-afk.github.io/grand-ideal-sns-auto-post/instagram_media/{image_name}"
+    image_name = Path(image_name).with_suffix(".jpg").name
+    source_url = f"https://sodagrand0301-afk.github.io/grand-ideal-sns-auto-post/instagram_media_jpg/{image_name}"
     image_url = f"{IMAGE_PROXY_BASE_URL}{quote(source_url, safe='')}&f=1"
     created = safe_post(
         api_url(f"{IG_USER_ID}/media"),
