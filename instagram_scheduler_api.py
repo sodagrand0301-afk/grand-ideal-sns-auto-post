@@ -85,7 +85,7 @@ def upload_to_cloudinary(image_name: str) -> str:
 
 
 def publish(row: dict[str, str], token: str) -> str:
-    image_name = Path(row["image_path"].replace("/", "\\")).name
+    image_name = Path(row["image_path"].replace("\\", "/")).name
     image_name = Path(image_name).with_suffix(".jpg").name
     image_url = upload_to_cloudinary(image_name)
     created = safe_post(
