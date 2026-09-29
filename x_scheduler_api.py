@@ -42,50 +42,24 @@ class XPoster:
             return
         response = requests.post(
             "https://api.x.com/2/oauth2/token",
-            data={
-                "refresh_token": self.refresh_token,
-                "grant_type": "refresh_token",
-                "client_id": self.client_id,
-            },
+            data={"refresh_token": self.refresh_token, "grant_type": "refresh_token", "client_id": self.client_id},
             timeout=30,
         )
         if response.ok:
-            payload = response.json()
-            self.access_token = payload.get("access_token", self.access_token)
+            self.access_token = response.json().get("access_token", self.access_token)
 
     def post(self, image_path, text):
         self.refresh_access_token()
         headers = {"Authorization": f"Bearer {self.access_token}"}
-        upload_url = "https://api.x.com/2/media/upload"
-        init = requests.post(
-            upload_url,
-            params={
-                "command": "INIT",
-                "total_bytes": image_path.stat().st_size,
-                "media_type": "image/png",
-                "media_category": "tweet_image",
-            },
-            headers=headers,
-            timeout=60,
-        )
-        init.raise_for_status()
-        media_id = init.json()["data"]["id"]
         with image_path.open("rb") as image_file:
-            append = requests.post(
-                upload_url,
-                params={"command": "APPEND", "media_id": media_id, "segment_index": 0},
+            upload = requests.post(
+                "https://upload.x.com/1.1/media/upload.json",
                 files={"media": (image_path.name, image_file, "image/png")},
                 headers=headers,
                 timeout=60,
             )
-        append.raise_for_status()
-        finalize = requests.post(
-            upload_url,
-            params={"command": "FINALIZE", "media_id": media_id},
-            headers=headers,
-            timeout=60,
-        )
-        finalize.raise_for_status()
+        upload.raise_for_status()
+        media_id = upload.json()["media_id_string"]
         response = requests.post(
             "https://api.x.com/2/tweets",
             json={"text": text, "media": {"media_ids": [media_id]}},
