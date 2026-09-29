@@ -58,7 +58,8 @@ class XPoster:
                 headers=headers,
                 timeout=60,
             )
-        upload.raise_for_status()
+        if not upload.ok:
+            raise RuntimeError(f"X media upload {upload.status_code}: {upload.text[:500]}")
         media_id = upload.json()["media_id_string"]
         response = requests.post(
             "https://api.x.com/2/tweets",
@@ -66,7 +67,8 @@ class XPoster:
             headers=headers,
             timeout=30,
         )
-        response.raise_for_status()
+        if not response.ok:
+            raise RuntimeError(f"X tweet post {response.status_code}: {response.text[:500]}")
         return response.json().get("data", {}).get("id")
 
 def parse_time(value):
