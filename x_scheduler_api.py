@@ -33,39 +33,67 @@ def save_items(items):
 
 class XPoster:
     def __init__(self):
-        values = {
-            "consumer_key": os.getenv("X_CONSUMER_KEY"),
-            "consumer_secret": os.getenv("X_CONSUMER_SECRET"),
-            "access_token": os.getenv("X_ACCESS_TOKEN"),
-            "access_token_secret": os.getenv("X_ACCESS_TOKEN_SECRET"),
-        }
-        if not all(values.values()):
-            values = {
-                "consumer_key": getpass("コンシューマーキー: "),
-                "consumer_secret": getpass("コンシューマーシークレット: "),
-                "access_token": getpass("アクセストークン: "),
-                "access_token_secret": getpass("アクセストークンシークレット: "),
-            }
-        self.auth = OAuth1(
-            values["consumer_key"],
-            client_secret=values["consumer_secret"],
-            resource_owner_key=values["access_token"],
-            resource_owner_secret=values["access_token_secret"],
+        self.client_id = os.getenv("X_CLIENT_ID")
+        self.access_token = os.getenv("X_OAUTH2_ACCESS_TOKEN")
+        self.refresh_token = os.getenv("X_OAUTH2_REFRESH_TOKEN")
+
+    def refresh_access_token(self):
+        if not self.refresh_token or not self.client_id:
+            return
+        response = requests.post(
+            "https://api.x.com/2/oauth2/token",
+            data={
+                "refresh_token": self.refresh_token,
+                "grant_type": "refresh_token",
+                "client_id": self.client_id,
+            },
+            timeout=30,
         )
+        if response.ok:
+            payload = response.json()
+            self.access_token = payload.get("access_token", self.access_token)
 
     def post(self, image_path, text):
+        self.refresh_access_token()
+        headers = {"Authorization": f"Bearer {self.access_token}"}
+        upload_url = "https://api.x.com/2/media/upload"
+        init = requests.post(
+            upload_url,
+            params={
+                "command": "INIT",
+                "total_bytes": image_path.stat().st_size,
+                "media_type": "image/png",
+                "media_category": "tweet_image",
+            },
+            headers=headers,
+            timeout=60,
+        )
+        init.raise_for_status()
+        media_id = init.json()["data"]["id"]
         with image_path.open("rb") as image_file:
-            response = requests.post(
-                "https://api.x.com/1.1/statuses/update_with_media.json",
-                data={"status": text},
-                files={"media[]": (image_path.name, image_file, "image/png")},
-                auth=self.auth,
+            append = requests.post(
+                upload_url,
+                params={"command": "APPEND", "media_id": media_id, "segment_index": 0},
+                files={"media": (image_path.name, image_file, "image/png")},
+                headers=headers,
                 timeout=60,
             )
+        append.raise_for_status()
+        finalize = requests.post(
+            upload_url,
+            params={"command": "FINALIZE", "media_id": media_id},
+            headers=headers,
+            timeout=60,
+        )
+        finalize.raise_for_status()
+        response = requests.post(
+            "https://api.x.com/2/tweets",
+            json={"text": text, "media": {"media_ids": [media_id]}},
+            headers=headers,
+            timeout=30,
+        )
         response.raise_for_status()
-        payload = response.json()
-        return payload.get("id_str") or str(payload.get("id"))
-
+        return response.json().get("data", {}).get("id")
 
 def parse_time(value):
     parsed = datetime.fromisoformat(value)
