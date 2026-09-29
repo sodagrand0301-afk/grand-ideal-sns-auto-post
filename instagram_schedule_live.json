@@ -48,8 +48,11 @@
     "posted_at_utc": "2026-09-28T12:29:06.361960+00:00"
   },
   "2026-09-29-10-00-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-09-29T10:00:00+09:00"
+    "status": "posted",
+    "scheduled_at_jst": "2026-09-29T10:00:00+09:00",
+    "post_id": "18628709977042953",
+    "posted_at_utc": "2026-09-29T01:14:39.520020+00:00",
+    "error": ""
   },
   "2026-09-29-14-00-Instagram": {
     "status": "planned",
