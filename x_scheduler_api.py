@@ -88,10 +88,11 @@ class XPoster:
         )
         if not finalize.ok:
             raise RuntimeError(f"X media FINALIZE {finalize.status_code}: {finalize.text[:500]}")
+        oauth2_token = os.getenv("X_OAUTH2_ACCESS_TOKEN")
         response = requests.post(
-            "https://api.x.com/1.1/statuses/update.json",
-            data={"status": text, "media_ids": media_id},
-            auth=self.auth,
+            "https://api.x.com/2/tweets",
+            headers={"Authorization": f"Bearer {oauth2_token}"} if oauth2_token else {},
+            json={"text": text, "media": {"media_ids": [media_id]}},
             timeout=30,
         )
         if not response.ok:
