@@ -30,48 +30,31 @@ def save_items(items):
 
 class XPoster:
     def __init__(self):
-        values = {
-            "consumer_key": os.getenv("X_CONSUMER_KEY"),
-            "consumer_secret": os.getenv("X_CONSUMER_SECRET"),
-            "access_token": os.getenv("X_ACCESS_TOKEN"),
-            "access_token_secret": os.getenv("X_ACCESS_TOKEN_SECRET"),
-        }
+        values = {"consumer_key": os.getenv("X_CONSUMER_KEY"), "consumer_secret": os.getenv("X_CONSUMER_SECRET"), "access_token": os.getenv("X_ACCESS_TOKEN"), "access_token_secret": os.getenv("X_ACCESS_TOKEN_SECRET")}
         if not all(values.values()):
             print("OAuth1認証情報を入力してください。入力内容は保存・表示しません。")
-            values = {
-                "consumer_key": getpass("コンシューマーキー: "),
-                "consumer_secret": getpass("コンシューマーシークレット: "),
-                "access_token": getpass("アクセストークン: "),
-                "access_token_secret": getpass("アクセストークンシークレット: "),
-            }
-        self.auth = OAuth1(
-            values["consumer_key"],
-            client_secret=values["consumer_secret"],
-            resource_owner_key=values["access_token"],
-            resource_owner_secret=values["access_token_secret"],
-        )
+            values = {"consumer_key": getpass("コンシューマーキー: "), "consumer_secret": getpass("コンシューマーシークレット: "), "access_token": getpass("アクセストークン: "), "access_token_secret": getpass("アクセストークンシークレット: ")}
+        self.auth = OAuth1(values["consumer_key"], client_secret=values["consumer_secret"], resource_owner_key=values["access_token"], resource_owner_secret=values["access_token_secret"])
 
     def post(self, image_path, text):
         upload_url = "https://upload.x.com/1.1/media/upload.json"
         total_bytes = image_path.stat().st_size
         init = requests.post(upload_url, data={"command": "INIT", "total_bytes": str(total_bytes), "media_type": "image/png", "media_category": "tweet_image"}, auth=self.auth, timeout=60)
-        if not init.ok:
-            raise RuntimeError(f"X media INIT {init.status_code}: {init.text[:500]}")
+        init.raise_for_status()
         media_id = init.json().get("media_id_string")
         if not media_id:
             raise RuntimeError("X media INIT returned no media id")
         with image_path.open("rb") as image_file:
             append = requests.post(upload_url, data={"command": "APPEND", "media_id": media_id, "segment_index": "0"}, files={"media": (image_path.name, image_file, "image/png")}, auth=self.auth, timeout=60)
-        if not append.ok:
-            raise RuntimeError(f"X media APPEND {append.status_code}: {append.text[:500]}")
+        append.raise_for_status()
         finalize = requests.post(upload_url, data={"command": "FINALIZE", "media_id": media_id}, auth=self.auth, timeout=60)
-        if not finalize.ok:
-            raise RuntimeError(f"X media FINALIZE {finalize.status_code}: {finalize.text[:500]}")
-        oauth2_token = os.getenv("X_OAUTH2_ACCESS_TOKEN")
-        response = requests.post("https://api.x.com/2/tweets", headers={"Authorization": f"Bearer {oauth2_token}"} if oauth2_token else {}, json={"text": text, "media": {"media_ids": [media_id]}}, timeout=30)
-        if not response.ok:
-            raise RuntimeError(f"X tweet post {response.status_code}: {response.text[:500]}")
-        return response.json().get("data", {}).get("id")
+        finalize.raise_for_status()
+        response = requests.post("https://api.x.com/2/tweets", auth=self.auth, json={"text": text, "media": {"media_ids": [media_id]}}, timeout=30)
+        response.raise_for_status()
+        post_id = response.json().get("data", {}).get("id")
+        if not post_id:
+            raise RuntimeError("X tweet response contained no post id")
+        return post_id
 
 def parse_time(value):
     parsed = datetime.fromisoformat(value)
@@ -89,8 +72,7 @@ def run_due(poster):
             if item.get("status") == "posted":
                 continue
             if not item.get("text", "").strip():
-                item["status"] = "needs_text_review"
-                item["error"] = "本文が空欄です"
+                item.update({"status": "needs_text_review", "error": "本文が空欄です"})
                 changed = True
                 continue
             if parse_time(item["scheduled_at"]) > now:
@@ -99,19 +81,14 @@ def run_due(poster):
             if not image_path.is_file():
                 image_path = ROOT / Path(item["image_path"]).name
             if not image_path.is_file():
-                item["status"] = "error"
-                item["error"] = f"画像が見つかりません: {image_path}"
+                item.update({"status": "error", "error": f"画像が見つかりません: {image_path}"})
                 failures.append((item.get("post_key", ""), item["error"]))
                 changed = True
                 continue
             try:
-                item["post_id"] = poster.post(image_path, item["text"])
-                item["status"] = "posted"
-                item["posted_at"] = datetime.now(JST).isoformat()
-                item["error"] = ""
+                item.update({"status": "posted", "post_id": poster.post(image_path, item["text"]), "posted_at": datetime.now(JST).isoformat(), "error": ""})
             except Exception as exc:
-                item["status"] = "error"
-                item["error"] = str(exc)[:500]
+                item.update({"status": "error", "error": str(exc)[:500]})
                 failures.append((item.get("post_key", ""), item["error"]))
             changed = True
         if changed:
@@ -146,8 +123,7 @@ class Handler(BaseHTTPRequestHandler):
                 if not item.get(field):
                     raise ValueError(f"{field} is required")
             parse_time(item["scheduled_at"])
-            item["status"] = "planned"
-            item["error"] = ""
+            item.update({"status": "planned", "error": ""})
             with LOCK:
                 items = load_items()
                 if any(x.get("post_key") == item["post_key"] for x in items):
