@@ -49,8 +49,13 @@ class XPoster:
         append.raise_for_status()
         finalize = requests.post(upload_url, data={"command": "FINALIZE", "media_id": media_id}, auth=self.auth, timeout=60)
         finalize.raise_for_status()
-        response = requests.post("https://api.x.com/2/tweets", auth=self.auth, json={"text": text, "media": {"media_ids": [media_id]}}, timeout=30)
-        response.raise_for_status()
+        oauth2_token = os.getenv("X_OAUTH2_ACCESS_TOKEN")
+        if oauth2_token:
+            response = requests.post("https://api.x.com/2/tweets", headers={"Authorization": f"Bearer {oauth2_token}"}, json={"text": text, "media": {"media_ids": [media_id]}}, timeout=30)
+        else:
+            response = requests.post("https://api.x.com/2/tweets", auth=self.auth, json={"text": text, "media": {"media_ids": [media_id]}}, timeout=30)
+        if not response.ok:
+            raise RuntimeError(f"X tweet post {response.status_code}: {response.text[:500]}")
         post_id = response.json().get("data", {}).get("id")
         if not post_id:
             raise RuntimeError("X tweet response contained no post id")
