@@ -52,18 +52,26 @@ class XPoster:
         )
 
     def post(self, image_path, text):
+        upload_url = "https://upload.x.com/1.1/media/upload.json"
+        total_bytes = image_path.stat().st_size
+        init = requests.post(upload_url, data={"command": "INIT", "total_bytes": str(total_bytes), "media_type": "image/png", "media_category": "tweet_image"}, auth=self.auth, timeout=60)
+        if not init.ok:
+            raise RuntimeError(f"X media INIT {init.status_code}: {init.text[:500]}")
+        media_id = init.json().get("media_id_string")
+        if not media_id:
+            raise RuntimeError("X media INIT returned no media id")
         with image_path.open("rb") as image_file:
-            response = requests.post(
-                "https://api.x.com/1.1/statuses/update_with_media.json",
-                data={"status": text},
-                files={"media[]": (image_path.name, image_file, "image/png")},
-                auth=self.auth,
-                timeout=60,
-            )
+            append = requests.post(upload_url, data={"command": "APPEND", "media_id": media_id, "segment_index": "0"}, files={"media": (image_path.name, image_file, "image/png")}, auth=self.auth, timeout=60)
+        if not append.ok:
+            raise RuntimeError(f"X media APPEND {append.status_code}: {append.text[:500]}")
+        finalize = requests.post(upload_url, data={"command": "FINALIZE", "media_id": media_id}, auth=self.auth, timeout=60)
+        if not finalize.ok:
+            raise RuntimeError(f"X media FINALIZE {finalize.status_code}: {finalize.text[:500]}")
+        oauth2_token = os.getenv("X_OAUTH2_ACCESS_TOKEN")
+        response = requests.post("https://api.x.com/2/tweets", headers={"Authorization": f"Bearer {oauth2_token}"} if oauth2_token else {}, json={"text": text, "media": {"media_ids": [media_id]}}, timeout=30)
         if not response.ok:
             raise RuntimeError(f"X tweet post {response.status_code}: {response.text[:500]}")
-        body = response.json()
-        return body.get("id_str") or str(body.get("id"))
+        return response.json().get("data", {}).get("id")
 
 def parse_time(value):
     parsed = datetime.fromisoformat(value)
