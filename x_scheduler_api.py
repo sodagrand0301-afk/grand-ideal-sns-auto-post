@@ -89,8 +89,8 @@ class XPoster:
         if not finalize.ok:
             raise RuntimeError(f"X media FINALIZE {finalize.status_code}: {finalize.text[:500]}")
         response = requests.post(
-            "https://api.x.com/2/tweets",
-            json={"text": text, "media": {"media_ids": [media_id]}},
+            "https://api.twitter.com/1.1/statuses/update.json",
+            data={"status": text, "media_ids": media_id},
             auth=self.auth,
             timeout=30,
         )
