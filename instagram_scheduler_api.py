@@ -11,6 +11,7 @@ from pathlib import Path
 
 import requests
 import truststore
+from social_text import format_social_text
 
 truststore.inject_into_ssl()
 
@@ -49,7 +50,7 @@ def save_state(state: dict[str, dict]) -> None:
     STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
 
 def caption(row: dict[str, str]) -> str:
-    return row["text"].strip()
+    return format_social_text(row["text"], max_chars=2200)
 
 def upload_to_cloudinary(image_name: str) -> str:
     cloud_name = os.getenv("CLOUDINARY_CLOUD_NAME", "").strip()
