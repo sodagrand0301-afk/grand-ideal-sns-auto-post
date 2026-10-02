@@ -174,7 +174,7 @@
     "post_key": "2026-10-02-18-00-X",
     "image_path": "SNS投稿用画像/9月分SNS用/2026-10-02_X_03.png",
     "scheduled_at": "2026-10-02T18:00:00+09:00",
-    "status": "planned",
-    "error": ""
+    "status": "error",
+    "error": "X本文投稿失敗 (401): {\n  \"title\": \"Unauthorized\",\n  \"type\": \"about:blank\",\n  \"status\": 401,\n  \"detail\": \"Unauthorized\"\n}"
   }
 ]
