@@ -1,5 +1,6 @@
 import argparse
 import json
+import re
 import os
 import threading
 import time
@@ -11,7 +12,29 @@ from pathlib import Path
 import requests
 import truststore
 from requests_oauthlib import OAuth1
-from social_text import format_social_text
+OFFICIAL_LINE_CTA = "詳しくは公式LINEまでご相談ください。"
+
+def format_social_text(text: str, max_chars: int | None = None) -> str:
+    cleaned = text.replace("\r\n", "\n").replace("\r", "\n")
+    lines = []
+    for line in cleaned.split("\n"):
+        line = re.sub(r"[ \t]+", " ", line).strip()
+        if line and line != OFFICIAL_LINE_CTA:
+            lines.append(line)
+    hashtag_lines = [line for line in lines if line.startswith("#")]
+    body_lines = [line for line in lines if not line.startswith("#")]
+    body = "\n".join(body_lines).strip()
+    hashtags = "\n".join(hashtag_lines).strip()
+    parts = [part for part in (body, hashtags, OFFICIAL_LINE_CTA) if part]
+    result = "\n\n".join(parts)
+    if max_chars is not None and len(result) > max_chars:
+        suffix = "\n\n".join(part for part in (hashtags, OFFICIAL_LINE_CTA) if part)
+        available = max_chars - len(suffix) - 2
+        if available <= 0:
+            return OFFICIAL_LINE_CTA[:max_chars]
+        result = f"{body[:max(1, available - 1)].rstrip()}…\n\n{suffix}"
+    return result
+
 
 truststore.inject_into_ssl()
 ROOT = Path(__file__).resolve().parent
