@@ -84,9 +84,9 @@ class XPoster:
         )
 
     def post(self, image_path, text):
-        text = format_social_text(text, max_chars=280)
-        if len(text) > 280:
-            raise ValueError(f"X本文が280文字を超えています: {len(text)}文字")
+        text = format_social_text(text, max_chars=2200)
+        if len(text) > 2200:
+            raise ValueError(f"X本文が2200文字を超えています: {len(text)}文字")
 
         # 画像はOAuth 1.0a User Contextでアップロードする。
         with image_path.open("rb") as image_file:
