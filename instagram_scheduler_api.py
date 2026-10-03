@@ -11,7 +11,11 @@ from urllib.parse import quote
 
 import requests
 import truststore
-from social_text import format_social_text
+def format_social_text(text: str, max_chars: int | None = None) -> str:
+    cleaned = text.replace("\r\n", "\n").replace("\r", "\n")
+    if max_chars is not None and len(cleaned) > max_chars:
+        return cleaned[:max_chars].rstrip() + "…"
+    return cleaned.strip()
 
 truststore.inject_into_ssl()
 ROOT = Path(__file__).resolve().parent
