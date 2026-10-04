@@ -174,7 +174,9 @@
     "post_key": "2026-10-02-18-00-X",
     "image_path": "SNS投稿用画像/9月分SNS用/2026-10-02_X_03.png",
     "scheduled_at": "2026-10-02T18:00:00+09:00",
-    "status": "error",
-    "error": "X画像アップロード失敗 HTTP 401: {\"errors\":[{\"message\":\"Invalid or expired token\",\"code\":89}]}\n"
+    "status": "posted",
+    "error": "",
+    "post_id": "2106560755390730659",
+    "posted_at": "2026-10-04T10:43:17.034330+09:00"
   }
 ]
