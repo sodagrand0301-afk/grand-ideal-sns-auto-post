@@ -1,4 +1,4 @@
-instagram_today_2026-10-04.csvfrom __future__ import annotations
+from __future__ import annotations
 
 import csv
 import getpass
