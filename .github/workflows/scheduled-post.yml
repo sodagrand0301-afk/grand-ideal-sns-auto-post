@@ -25,6 +25,11 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
+      - name: Preflight checks
+        run: |
+          python -m py_compile social_text.py instagram_scheduler_api.py x_scheduler_api.py cloud_publish.py
+          python -c "import social_text, instagram_scheduler_api, x_scheduler_api, cloud_publish; print('preflight ok')"
+          python -c "import json; json.load(open('instagram_schedule_live.json', encoding='utf-8')); json.load(open('x_schedule_live.json', encoding='utf-8')); print('schedule json ok')"
       - name: Publish due posts
         env:
           X_CONSUMER_KEY: ${{ secrets.X_CONSUMER_KEY }}
