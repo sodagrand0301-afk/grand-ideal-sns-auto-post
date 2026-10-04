@@ -1,4 +1,4 @@
-from __future__ import annotations
+instagram_today_2026-10-04.csvfrom __future__ import annotations
 
 import csv
 import getpass
@@ -19,7 +19,7 @@ def format_social_text(text: str, max_chars: int | None = None) -> str:
 
 truststore.inject_into_ssl()
 ROOT = Path(__file__).resolve().parent
-CSV_FILE = ROOT / "本番投稿台帳_2026-09-27_10-02.csv"
+CSV_FILE = ROOT / "instagram_today_2026-10-04.csv"
 STATE_FILE = ROOT / "instagram_schedule_live.json"
 IG_USER_ID = "17841431756345101"
 PUBLIC_BASE_URL = os.getenv("PUBLIC_BASE_URL", "https://raw.githubusercontent.com/sodagrand0301-afk/grand-ideal-sns-auto-post/main")
