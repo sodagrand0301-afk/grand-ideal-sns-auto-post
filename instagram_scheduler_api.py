@@ -23,7 +23,7 @@ def format_social_text(text: str, max_chars: int | None = None) -> str:
     return cleaned
 
 ROOT = Path(__file__).resolve().parent
-CSV_FILE = ROOT / "instagram_today_2026-10-04.csv"
+CSV_FILE = ROOT / "instagram_schedule_2026-10-05_onward.csv"
 STATE_FILE = ROOT / "instagram_schedule_live.json"
 IG_USER_ID = "17841431756345101"
 # クラウド実行時はGitHub等の永続HTTPS URLを環境変数で指定します。
@@ -151,3 +151,4 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("Instagram予約APIを停止しました。")
+
