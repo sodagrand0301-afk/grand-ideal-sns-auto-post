@@ -11,13 +11,19 @@ from urllib.parse import quote
 
 import requests
 import truststore
-from social_text import format_social_text
 
 
 truststore.inject_into_ssl()
 
+
+def format_social_text(text: str, max_chars: int | None = None) -> str:
+    cleaned = text.replace("\r\n", "\n").replace("\r", "\n").strip()
+    if max_chars is not None and len(cleaned) > max_chars:
+        return cleaned[:max_chars].rstrip() + "…"
+    return cleaned
+
 ROOT = Path(__file__).resolve().parent
-CSV_FILE = ROOT / "本番投稿台帳_2026-09-27_10-02.csv"
+CSV_FILE = ROOT / "instagram_today_2026-10-04.csv"
 STATE_FILE = ROOT / "instagram_schedule_live.json"
 IG_USER_ID = "17841431756345101"
 # クラウド実行時はGitHub等の永続HTTPS URLを環境変数で指定します。
