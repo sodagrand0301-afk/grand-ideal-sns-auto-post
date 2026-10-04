@@ -3,17 +3,22 @@ name: Scheduled SNS posts
 
 on:
   schedule:
-    - cron: "0 1,5,9 * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 
 permissions:
   contents: write
 
+concurrency:
+  group: scheduled-sns-posts
+  cancel-in-progress: false
+
 
 jobs:
   post:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
