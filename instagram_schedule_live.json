@@ -365,8 +365,11 @@
     "error": ""
   },
   "2026-10-14-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-14T18:00:00+09:00"
+    "status": "posted",
+    "scheduled_at_jst": "2026-10-14T18:00:00+09:00",
+    "post_id": "18133380121736583",
+    "posted_at_utc": "2026-10-14T09:08:38.844776+00:00",
+    "error": ""
   },
   "2026-10-15-10-Instagram": {
     "status": "planned",
