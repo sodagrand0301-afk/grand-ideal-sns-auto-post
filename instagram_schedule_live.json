@@ -414,8 +414,11 @@
     "error": ""
   },
   "2026-10-17-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-17T10:00:00+09:00"
+    "status": "posted",
+    "scheduled_at_jst": "2026-10-17T10:00:00+09:00",
+    "post_id": "18106371296168910",
+    "posted_at_utc": "2026-10-17T01:06:38.418151+00:00",
+    "error": ""
   },
   "2026-10-17-14-Instagram": {
     "status": "planned",
@@ -592,5 +595,41 @@
   "2026-10-31-18-Instagram": {
     "status": "planned",
     "scheduled_at_jst": "2026-10-31T18:00:00+09:00"
+  },
+  "2026-11-01-10-Instagram": {
+    "status": "planned",
+    "scheduled_at_jst": "2026-11-01T10:00:00+09:00"
+  },
+  "2026-11-01-14-Instagram": {
+    "status": "planned",
+    "scheduled_at_jst": "2026-11-01T14:00:00+09:00"
+  },
+  "2026-11-01-18-Instagram": {
+    "status": "planned",
+    "scheduled_at_jst": "2026-11-01T18:00:00+09:00"
+  },
+  "2026-11-02-10-Instagram": {
+    "status": "planned",
+    "scheduled_at_jst": "2026-11-02T10:00:00+09:00"
+  },
+  "2026-11-02-14-Instagram": {
+    "status": "planned",
+    "scheduled_at_jst": "2026-11-02T14:00:00+09:00"
+  },
+  "2026-11-02-18-Instagram": {
+    "status": "planned",
+    "scheduled_at_jst": "2026-11-02T18:00:00+09:00"
+  },
+  "2026-11-03-10-Instagram": {
+    "status": "planned",
+    "scheduled_at_jst": "2026-11-03T10:00:00+09:00"
+  },
+  "2026-11-03-14-Instagram": {
+    "status": "planned",
+    "scheduled_at_jst": "2026-11-03T14:00:00+09:00"
+  },
+  "2026-11-03-18-Instagram": {
+    "status": "planned",
+    "scheduled_at_jst": "2026-11-03T18:00:00+09:00"
   }
 }
