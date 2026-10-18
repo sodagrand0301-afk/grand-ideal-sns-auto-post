@@ -3,648 +3,110 @@
     "status": "posted",
     "scheduled_at_jst": "2026-09-27T10:00:00+09:00",
     "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"\\u30e1\\u30c7\\u30a3\\u30a2\\u3092\\u30c0\\u30a6\\u30f3\\u30ed\\u30fc\\u30c9\\u3067\\u304d\\u307e\\u305b\\u3093\\u3067\\u3057\\u305f\\u3002\\u30e1",
-    "last_attempt_utc": "2026-09-27T01:00:36.359550+00:00",
+    "last_attempt_utc": "2026-09-27T10:00:36.35955+09:00",
     "post_id": "17953604142256685",
-    "posted_at_utc": "2026-09-27T01:06:18.557631+00:00"
+    "posted_at_utc": "2026-09-27T10:06:18.557631+09:00"
   },
   "2026-09-27-14-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-09-27T14:00:00+09:00",
-    "error": "",
-    "last_attempt_utc": "2026-09-28T12:12:58.804655+00:00",
-    "post_id": "18096807023401113",
-    "posted_at_utc": "2026-09-28T12:28:16.219478+00:00"
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-09-27-18-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-09-27T18:00:00+09:00",
-    "error": "",
-    "last_attempt_utc": "2026-09-28T12:12:59.287722+00:00",
-    "post_id": "17977578612066749",
-    "posted_at_utc": "2026-09-28T12:28:31.389000+00:00"
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-09-28-10-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-09-28T10:00:00+09:00",
-    "error": "",
-    "last_attempt_utc": "2026-09-28T12:12:59.754989+00:00",
-    "post_id": "18136299691651083",
-    "posted_at_utc": "2026-09-28T12:28:44.496467+00:00"
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-09-28-14-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-09-28T14:00:00+09:00",
-    "error": "",
-    "last_attempt_utc": "2026-09-28T12:13:00.228464+00:00",
-    "post_id": "18061595702618653",
-    "posted_at_utc": "2026-09-28T12:28:57.819550+00:00"
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-09-28-18-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-09-28T18:00:00+09:00",
-    "error": "",
-    "last_attempt_utc": "2026-09-28T12:13:00.697060+00:00",
-    "post_id": "17954310585256588",
-    "posted_at_utc": "2026-09-28T12:29:06.361960+00:00"
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-09-29-10-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-09-29T10:00:00+09:00",
-    "post_id": "18628709977042953",
-    "posted_at_utc": "2026-09-29T01:14:39.520020+00:00",
-    "error": ""
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-09-29-14-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-09-29T14:00:00+09:00",
-    "post_id": "17900687421377953",
-    "posted_at_utc": "2026-09-29T05:14:06.243350+00:00",
-    "error": ""
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-09-29-18-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-09-29T18:00:00+09:00",
-    "post_id": "18009435425960475",
-    "posted_at_utc": "2026-09-29T09:16:12.018598+00:00",
-    "error": ""
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-09-30-10-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-09-30T10:00:00+09:00",
-    "post_id": "18105930842214289",
-    "posted_at_utc": "2026-09-30T01:14:49.679838+00:00",
-    "error": ""
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-09-30-14-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-09-30T14:00:00+09:00",
-    "post_id": "18131977156749426",
-    "posted_at_utc": "2026-09-30T05:14:58.589839+00:00",
-    "error": ""
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-09-30-18-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-09-30T18:00:00+09:00",
-    "post_id": "18109996889176626",
-    "posted_at_utc": "2026-09-30T09:14:44.114885+00:00",
-    "error": ""
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-10-01-10-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-10-01T10:00:00+09:00",
-    "post_id": "18115478476810748",
-    "posted_at_utc": "2026-10-01T01:15:43.786358+00:00",
-    "error": ""
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-10-01-14-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-10-01T14:00:00+09:00",
-    "post_id": "17862364392693244",
-    "posted_at_utc": "2026-10-01T05:14:58.520230+00:00",
-    "error": ""
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-10-01-18-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-10-01T18:00:00+09:00",
-    "post_id": "18385930912227882",
-    "posted_at_utc": "2026-10-01T09:16:43.237666+00:00",
-    "error": ""
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-10-02-10-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-10-02T10:00:00+09:00",
-    "post_id": "18186879712404356",
-    "posted_at_utc": "2026-10-02T01:15:00.764872+00:00",
-    "error": ""
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-10-02-14-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-10-02T14:00:00+09:00",
-    "post_id": "17969396901178143",
-    "posted_at_utc": "2026-10-02T05:14:14.656856+00:00",
-    "error": ""
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-10-02-18-00-Instagram": {
-    "status": "posted",
+    "status": "cancelled",
     "scheduled_at_jst": "2026-10-02T18:00:00+09:00",
-    "post_id": "17973938541130121",
-    "posted_at_utc": "2026-10-02T09:15:33.179867+00:00",
-    "error": ""
-  },
-  "2026-10-04-10-00-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-04T10:00:00+09:00",
-    "error": "",
-    "last_attempt_utc": "2026-10-04T02:06:07.559487+00:00",
-    "post_id": "18143042422565054",
-    "posted_at_utc": "2026-10-04T02:11:50.079671+00:00"
-  },
-  "2026-10-04-14-00-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-04T14:00:00+09:00"
-  },
-  "2026-10-04-18-00-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-04T18:00:00+09:00"
-  },
-  "2026-10-04-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-04T14:00:00+09:00",
-    "post_id": "18107337107619979",
-    "posted_at_utc": "2026-10-04T11:01:43.932357+00:00",
-    "error": ""
-  },
-  "2026-10-04-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-04T18:00:00+09:00",
-    "post_id": "18129363607761618",
-    "posted_at_utc": "2026-10-04T11:01:56.280354+00:00",
-    "error": ""
-  },
-  "2026-10-05-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-05T10:00:00+09:00",
-    "post_id": "18115593521594132",
-    "posted_at_utc": "2026-10-05T01:08:05.675650+00:00",
-    "error": ""
-  },
-  "2026-10-05-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-05T14:00:00+09:00",
-    "post_id": "18101297297632500",
-    "posted_at_utc": "2026-10-05T05:07:22.545956+00:00",
-    "error": ""
-  },
-  "2026-10-05-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-05T18:00:00+09:00",
-    "post_id": "17883562113623246",
-    "posted_at_utc": "2026-10-05T09:03:46.732796+00:00",
-    "error": ""
-  },
-  "2026-10-06-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-06T10:00:00+09:00",
-    "post_id": "18162697336428865",
-    "posted_at_utc": "2026-10-06T01:08:50.053535+00:00",
-    "error": ""
-  },
-  "2026-10-06-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-06T14:00:00+09:00",
-    "post_id": "18127396804877218",
-    "posted_at_utc": "2026-10-06T05:02:31.662889+00:00",
-    "error": ""
-  },
-  "2026-10-06-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-06T18:00:00+09:00",
-    "post_id": "18151472005494422",
-    "posted_at_utc": "2026-10-06T09:02:37.879863+00:00",
-    "error": ""
-  },
-  "2026-10-07-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-07T10:00:00+09:00",
-    "post_id": "18129440461814291",
-    "posted_at_utc": "2026-10-07T01:03:06.266065+00:00",
-    "error": ""
-  },
-  "2026-10-07-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-07T14:00:00+09:00",
-    "post_id": "18236950342318591",
-    "posted_at_utc": "2026-10-07T05:05:10.567297+00:00",
-    "error": ""
-  },
-  "2026-10-07-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-07T18:00:00+09:00",
-    "post_id": "18129444259745560",
-    "posted_at_utc": "2026-10-07T09:07:46.001019+00:00",
-    "error": ""
-  },
-  "2026-10-08-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-08T10:00:00+09:00",
-    "post_id": "18133154494735054",
-    "posted_at_utc": "2026-10-08T01:01:46.103125+00:00",
-    "error": ""
-  },
-  "2026-10-08-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-08T14:00:00+09:00",
-    "post_id": "18166351294475021",
-    "posted_at_utc": "2026-10-08T05:03:08.777574+00:00",
-    "error": ""
-  },
-  "2026-10-08-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-08T18:00:00+09:00",
-    "post_id": "17905935837595079",
-    "posted_at_utc": "2026-10-08T09:02:31.591980+00:00",
-    "error": ""
-  },
-  "2026-10-09-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-09T10:00:00+09:00",
-    "post_id": "17919451557446940",
-    "posted_at_utc": "2026-10-09T01:07:51.932875+00:00",
-    "error": ""
-  },
-  "2026-10-09-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-09T14:00:00+09:00",
-    "post_id": "18060016499637165",
-    "posted_at_utc": "2026-10-09T05:05:24.733738+00:00",
-    "error": ""
-  },
-  "2026-10-09-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-09T18:00:00+09:00",
-    "post_id": "18116837687043324",
-    "posted_at_utc": "2026-10-09T09:03:26.752057+00:00",
-    "error": ""
-  },
-  "2026-10-10-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-10T10:00:00+09:00",
-    "post_id": "17990055438025674",
-    "posted_at_utc": "2026-10-10T01:05:56.234029+00:00",
-    "error": ""
-  },
-  "2026-10-10-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-10T14:00:00+09:00",
-    "post_id": "18067025705524706",
-    "posted_at_utc": "2026-10-10T05:01:37.593774+00:00",
-    "error": ""
-  },
-  "2026-10-10-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-10T18:00:00+09:00",
-    "post_id": "18225955102331556",
-    "posted_at_utc": "2026-10-10T09:08:10.834640+00:00",
-    "error": ""
-  },
-  "2026-10-11-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-11T10:00:00+09:00",
-    "post_id": "18111778898598208",
-    "posted_at_utc": "2026-10-11T01:06:22.899572+00:00",
-    "error": ""
-  },
-  "2026-10-11-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-11T14:00:00+09:00",
-    "post_id": "17937099450125818",
-    "posted_at_utc": "2026-10-11T05:02:06.732287+00:00",
-    "error": ""
-  },
-  "2026-10-11-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-11T18:00:00+09:00",
-    "post_id": "18107954108252077",
-    "posted_at_utc": "2026-10-11T09:07:15.991025+00:00",
-    "error": ""
-  },
-  "2026-10-12-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-12T10:00:00+09:00",
-    "post_id": "18111472793597126",
-    "posted_at_utc": "2026-10-12T01:09:37.598403+00:00",
-    "error": ""
-  },
-  "2026-10-12-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-12T14:00:00+09:00",
-    "post_id": "18434785783176049",
-    "posted_at_utc": "2026-10-12T05:00:56.495615+00:00",
-    "error": ""
-  },
-  "2026-10-12-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-12T18:00:00+09:00",
-    "post_id": "17912723613541539",
-    "posted_at_utc": "2026-10-12T09:03:47.948948+00:00",
-    "error": ""
-  },
-  "2026-10-13-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-13T10:00:00+09:00",
-    "post_id": "18112955141175757",
-    "posted_at_utc": "2026-10-13T01:19:08.125582+00:00",
-    "error": ""
-  },
-  "2026-10-13-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-13T14:00:00+09:00",
-    "post_id": "18129032077827402",
-    "posted_at_utc": "2026-10-13T05:04:52.529190+00:00",
-    "error": ""
-  },
-  "2026-10-13-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-13T18:00:00+09:00",
-    "post_id": "18395847664206359",
-    "posted_at_utc": "2026-10-13T09:03:39.530931+00:00",
-    "error": ""
-  },
-  "2026-10-14-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-14T10:00:00+09:00",
-    "post_id": "18364289230247911",
-    "posted_at_utc": "2026-10-14T01:15:00.775022+00:00",
-    "error": ""
-  },
-  "2026-10-14-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-14T14:00:00+09:00",
-    "post_id": "17962672497216911",
-    "posted_at_utc": "2026-10-14T05:20:41.038855+00:00",
-    "error": ""
-  },
-  "2026-10-14-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-14T18:00:00+09:00",
-    "post_id": "18133380121736583",
-    "posted_at_utc": "2026-10-14T09:08:38.844776+00:00",
-    "error": ""
-  },
-  "2026-10-15-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-15T10:00:00+09:00",
-    "post_id": "18056084795801172",
-    "posted_at_utc": "2026-10-15T01:13:42.677007+00:00",
-    "error": ""
-  },
-  "2026-10-15-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-15T14:00:00+09:00",
-    "post_id": "18178823260436485",
-    "posted_at_utc": "2026-10-15T05:00:54.474168+00:00",
-    "error": ""
-  },
-  "2026-10-15-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-15T18:00:00+09:00",
-    "post_id": "17912089251514023",
-    "posted_at_utc": "2026-10-15T09:17:33.304530+00:00",
-    "error": ""
-  },
-  "2026-10-16-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-16T10:00:00+09:00",
-    "post_id": "18102750815330798",
-    "posted_at_utc": "2026-10-16T01:14:12.509334+00:00",
-    "error": ""
-  },
-  "2026-10-16-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-16T14:00:00+09:00",
-    "post_id": "18126358753687383",
-    "posted_at_utc": "2026-10-16T05:02:16.724056+00:00",
-    "error": ""
-  },
-  "2026-10-16-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-16T18:00:00+09:00",
-    "post_id": "18200036698391164",
-    "posted_at_utc": "2026-10-16T09:14:43.737171+00:00",
-    "error": ""
-  },
-  "2026-10-17-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-17T10:00:00+09:00",
-    "post_id": "18106371296168910",
-    "posted_at_utc": "2026-10-17T01:06:38.418151+00:00",
-    "error": ""
-  },
-  "2026-10-17-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-17T14:00:00+09:00",
-    "post_id": "17917912848455699",
-    "posted_at_utc": "2026-10-17T05:02:22.009159+00:00",
-    "error": ""
-  },
-  "2026-10-17-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-17T18:00:00+09:00",
-    "post_id": "18159126625526902",
-    "posted_at_utc": "2026-10-17T09:17:04.954753+00:00",
-    "error": ""
-  },
-  "2026-10-18-10-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-18T10:00:00+09:00",
-    "post_id": "18152751583530516",
-    "posted_at_utc": "2026-10-18T01:09:29.938012+00:00",
-    "error": ""
-  },
-  "2026-10-18-14-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-18T14:00:00+09:00",
-    "post_id": "17945453580086868",
-    "posted_at_utc": "2026-10-18T05:08:25.143126+00:00",
-    "error": ""
-  },
-  "2026-10-18-18-Instagram": {
-    "status": "posted",
-    "scheduled_at_jst": "2026-10-18T18:00:00+09:00",
-    "post_id": "17952512013314844",
-    "posted_at_utc": "2026-10-18T09:02:49.813358+00:00",
-    "error": ""
-  },
-  "2026-10-19-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-19T10:00:00+09:00"
-  },
-  "2026-10-19-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-19T14:00:00+09:00"
-  },
-  "2026-10-19-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-19T18:00:00+09:00"
-  },
-  "2026-10-20-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-20T10:00:00+09:00"
-  },
-  "2026-10-20-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-20T14:00:00+09:00"
-  },
-  "2026-10-20-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-20T18:00:00+09:00"
-  },
-  "2026-10-21-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-21T10:00:00+09:00"
-  },
-  "2026-10-21-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-21T14:00:00+09:00"
-  },
-  "2026-10-21-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-21T18:00:00+09:00"
-  },
-  "2026-10-22-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-22T10:00:00+09:00"
-  },
-  "2026-10-22-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-22T14:00:00+09:00"
-  },
-  "2026-10-22-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-22T18:00:00+09:00"
-  },
-  "2026-10-23-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-23T10:00:00+09:00"
-  },
-  "2026-10-23-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-23T14:00:00+09:00"
-  },
-  "2026-10-23-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-23T18:00:00+09:00"
-  },
-  "2026-10-24-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-24T10:00:00+09:00"
-  },
-  "2026-10-24-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-24T14:00:00+09:00"
-  },
-  "2026-10-24-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-24T18:00:00+09:00"
-  },
-  "2026-10-25-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-25T10:00:00+09:00"
-  },
-  "2026-10-25-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-25T14:00:00+09:00"
-  },
-  "2026-10-25-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-25T18:00:00+09:00"
-  },
-  "2026-10-26-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-26T10:00:00+09:00"
-  },
-  "2026-10-26-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-26T14:00:00+09:00"
-  },
-  "2026-10-26-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-26T18:00:00+09:00"
-  },
-  "2026-10-27-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-27T10:00:00+09:00"
-  },
-  "2026-10-27-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-27T14:00:00+09:00"
-  },
-  "2026-10-27-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-27T18:00:00+09:00"
-  },
-  "2026-10-28-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-28T10:00:00+09:00"
-  },
-  "2026-10-28-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-28T14:00:00+09:00"
-  },
-  "2026-10-28-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-28T18:00:00+09:00"
-  },
-  "2026-10-29-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-29T10:00:00+09:00"
-  },
-  "2026-10-29-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-29T14:00:00+09:00"
-  },
-  "2026-10-29-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-29T18:00:00+09:00"
-  },
-  "2026-10-30-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-30T10:00:00+09:00"
-  },
-  "2026-10-30-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-30T14:00:00+09:00"
-  },
-  "2026-10-30-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-30T18:00:00+09:00"
-  },
-  "2026-10-31-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-31T10:00:00+09:00"
-  },
-  "2026-10-31-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-31T14:00:00+09:00"
-  },
-  "2026-10-31-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-10-31T18:00:00+09:00"
-  },
-  "2026-11-01-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-11-01T10:00:00+09:00"
-  },
-  "2026-11-01-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-11-01T14:00:00+09:00"
-  },
-  "2026-11-01-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-11-01T18:00:00+09:00"
-  },
-  "2026-11-02-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-11-02T10:00:00+09:00"
-  },
-  "2026-11-02-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-11-02T14:00:00+09:00"
-  },
-  "2026-11-02-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-11-02T18:00:00+09:00"
-  },
-  "2026-11-03-10-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-11-03T10:00:00+09:00"
-  },
-  "2026-11-03-14-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-11-03T14:00:00+09:00"
-  },
-  "2026-11-03-18-Instagram": {
-    "status": "planned",
-    "scheduled_at_jst": "2026-11-03T18:00:00+09:00"
+    "error": "ユーザー指示により全予約をキャンセル",
+    "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   }
 }
