@@ -1066,7 +1066,7 @@
     "post_key": "2026-10-19-10-00-X",
     "image_path": "2026-10-19_1000_09_低所得でも家を買える.png",
     "scheduled_at": "2026-10-19T10:00:00+09:00",
-    "status": "needs_review",
-    "error": "投稿前検査エラー: 画像サイズを確認できません: No module named 'PIL'"
+    "status": "planned",
+    "error": ""
   }
 ]
