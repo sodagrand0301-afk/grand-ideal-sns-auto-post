@@ -182,8 +182,10 @@
     "error": "ユーザー指示により今回の再登録対象外"
   },
   "2026-10-19-10-00-Instagram": {
-    "status": "planned",
+    "status": "posted",
     "scheduled_at_jst": "2026-10-19T10:00:00+09:00",
-    "error": ""
+    "error": "",
+    "post_id": "18034290965850007",
+    "posted_at_utc": "2026-10-19T02:47:47.566736+00:00"
   }
 }
