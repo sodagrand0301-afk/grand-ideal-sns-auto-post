@@ -1066,7 +1066,9 @@
     "post_key": "2026-10-19-10-00-X",
     "image_path": "2026-10-19_1000_09_低所得でも家を買える.png",
     "scheduled_at": "2026-10-19T10:00:00+09:00",
-    "status": "error",
-    "error": "X本文投稿失敗 (401): {\n  \"title\": \"Unauthorized\",\n  \"type\": \"about:blank\",\n  \"status\": 401,\n  \"detail\": \"Unauthorized\"\n}"
+    "status": "posted",
+    "error": "",
+    "post_id": "2112008972987441502",
+    "posted_at": "2026-10-19T11:32:33.305751+09:00"
   }
 ]
