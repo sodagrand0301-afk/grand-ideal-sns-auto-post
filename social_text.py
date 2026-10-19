@@ -5,7 +5,19 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-RULES = json.loads((ROOT / "posting_rules.json").read_text(encoding="utf-8"))
+try:
+    RULES = json.loads((ROOT / "posting_rules.json").read_text(encoding="utf-8"))
+except FileNotFoundError:
+    RULES = {
+        "image": {"width": 1080, "height": 1440},
+        "caption": {
+            "minimum_characters": 250,
+            "forbidden_phrases": ["画像のポイントは"],
+            "minimum_hashtags": 5,
+            "brand_cta": "グランイデアルでは購入前の整理をサポートします。",
+            "line_cta": "詳しくは公式LINEまでご相談ください。",
+        },
+    }
 IMAGE_WIDTH = RULES["image"]["width"]
 IMAGE_HEIGHT = RULES["image"]["height"]
 BRAND_CTA = RULES["caption"]["brand_cta"]
@@ -24,14 +36,7 @@ def format_social_text(text: str, max_chars: int | None = None) -> str:
         line = re.sub(r"[ \t]+", " ", line).strip()
         if line and line != OFFICIAL_LINE_CTA and line != BRAND_CTA:
             lines.append(line)
-    body_lines = [
-        line for line in lines
-        if not line.startswith("#")
-        and "公式LINEまでご相談ください" not in line
-        and not line.startswith("グランイデアルでは")
-        and not line.startswith("グランイデアルが")
-        and line not in VOLUME_SUPPORT_LINES
-    ]
+    body_lines = [line for line in lines if not line.startswith("#") and "公式LINEまでご相談ください" not in line and not line.startswith("グランイデアルでは") and not line.startswith("グランイデアルが") and line not in VOLUME_SUPPORT_LINES]
     hashtag_lines = [line for line in lines if line.startswith("#")]
     body = "\n".join(body_lines).strip()
     if len(body) < RULES["caption"]["minimum_characters"]:
