@@ -110,30 +110,30 @@
     "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-10-20-10-00-Instagram": {
-    "status": "error",
+    "status": "posted",
     "scheduled_at_jst": "2026-10-20T10:00:00+09:00",
     "image_path": "2026-10-20_1000_12_住宅ローンが通らない人の為のローン.png",
-    "error": "Instagram削除失敗 HTTP 400: {\"error\":{\"message\":\"Unsupported delete request. Object with ID '17885083821511039' does not exist, cannot be loaded due to missing permissions, or does not support this operation\",\"type\":\"IGApiException\",\"code\":100,\"error_subcode\":33,\"fbtrace_id\":\"Aj6zIG8FoTaDR-BDM501m5X\"}}",
-    "post_id": "17885083821511039",
-    "posted_at_utc": "2026-10-20T01:07:37.298530+00:00",
+    "error": "",
+    "post_id": "18101078165363077",
+    "posted_at_utc": "2026-10-20T04:31:16.790206+00:00",
     "last_attempt_utc": "2026-10-20T03:14:04.581595+00:00"
   },
   "2026-10-20-14-00-Instagram": {
-    "status": "error",
+    "status": "posted",
     "scheduled_at_jst": "2026-10-20T10:00:00+09:00",
     "image_path": "2026-10-20_1400_13_住宅ローン相談窓口_無料.png",
-    "error": "Instagram削除失敗 HTTP 400: {\"error\":{\"message\":\"Unsupported delete request. Object with ID '18124140688903486' does not exist, cannot be loaded due to missing permissions, or does not support this operation\",\"type\":\"IGApiException\",\"code\":100,\"error_subcode\":33,\"fbtrace_id\":\"AYs-PQoh2D9Zqy2Xtpg8hpJ\"}}",
-    "post_id": "18124140688903486",
-    "posted_at_utc": "2026-10-20T01:07:48.958805+00:00",
+    "error": "",
+    "post_id": "17994031473025023",
+    "posted_at_utc": "2026-10-20T04:31:28.231987+00:00",
     "last_attempt_utc": "2026-10-20T03:14:04.691754+00:00"
   },
   "2026-10-20-18-00-Instagram": {
-    "status": "error",
+    "status": "posted",
     "scheduled_at_jst": "2026-10-20T10:00:00+09:00",
     "image_path": "2026-10-20_1800_14_債務整理_ローン_組めた.png",
-    "error": "Instagram削除失敗 HTTP 400: {\"error\":{\"message\":\"Unsupported delete request. Object with ID '18188710966413790' does not exist, cannot be loaded due to missing permissions, or does not support this operation\",\"type\":\"IGApiException\",\"code\":100,\"error_subcode\":33,\"fbtrace_id\":\"AtzfvOWGVxbM6tKGXPNh0-0\"}}",
-    "post_id": "18188710966413790",
-    "posted_at_utc": "2026-10-20T01:08:01.184154+00:00",
+    "error": "",
+    "post_id": "18148475242572304",
+    "posted_at_utc": "2026-10-20T04:31:41.014107+00:00",
     "last_attempt_utc": "2026-10-20T03:14:04.848933+00:00"
   },
   "2026-10-21-10-00-Instagram": {

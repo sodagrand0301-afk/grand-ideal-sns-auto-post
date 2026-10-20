@@ -971,7 +971,7 @@
     "image_path": "2026-10-20_1000_12_住宅ローンが通らない人の為のローン.png",
     "scheduled_at": "2026-10-20T10:00:00+09:00",
     "status": "error",
-    "error": "X削除失敗 HTTP 401: {\n  \"title\": \"Unauthorized\",\n  \"type\": \"about:blank\",\n  \"status\": 401,\n  \"detail\": \"Unauthorized\"\n}",
+    "error": "X本文投稿失敗 (401): {\n  \"title\": \"Unauthorized\",\n  \"type\": \"about:blank\",\n  \"status\": 401,\n  \"detail\": \"Unauthorized\"\n}",
     "post_id": "2112349925094707348",
     "posted_at": "2026-10-20T10:07:22.656663+09:00"
   },
@@ -981,7 +981,7 @@
     "image_path": "2026-10-20_1400_13_住宅ローン相談窓口_無料.png",
     "scheduled_at": "2026-10-20T10:00:00+09:00",
     "status": "error",
-    "error": "X削除失敗 HTTP 401: {\n  \"title\": \"Unauthorized\",\n  \"type\": \"about:blank\",\n  \"status\": 401,\n  \"detail\": \"Unauthorized\"\n}",
+    "error": "X本文投稿失敗 (401): {\n  \"title\": \"Unauthorized\",\n  \"type\": \"about:blank\",\n  \"status\": 401,\n  \"detail\": \"Unauthorized\"\n}",
     "post_id": "2112349929683218926",
     "posted_at": "2026-10-20T10:07:23.722052+09:00"
   },
@@ -991,7 +991,7 @@
     "image_path": "2026-10-20_1800_14_債務整理_ローン_組めた.png",
     "scheduled_at": "2026-10-20T10:00:00+09:00",
     "status": "error",
-    "error": "X削除失敗 HTTP 401: {\n  \"title\": \"Unauthorized\",\n  \"type\": \"about:blank\",\n  \"status\": 401,\n  \"detail\": \"Unauthorized\"\n}",
+    "error": "X本文投稿失敗 (401): {\n  \"title\": \"Unauthorized\",\n  \"type\": \"about:blank\",\n  \"status\": 401,\n  \"detail\": \"Unauthorized\"\n}",
     "post_id": "2112349934309487035",
     "posted_at": "2026-10-20T10:07:24.859504+09:00"
   },
