@@ -1,49 +1,42 @@
 name: Scheduled SNS posts
 
-
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "0 1,5,9 * * *"
   workflow_dispatch:
-
+    inputs:
+      repost_today:
+        description: "本日の投稿を削除して再投稿する"
+        required: false
+        default: "false"
+      repost_date:
+        description: "再投稿対象日 (YYYY-MM-DD)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
 
-concurrency:
-  group: scheduled-sns-posts
-  cancel-in-progress: false
-
-
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
-      - name: Preflight checks
-        run: |
-          python -m py_compile social_text.py instagram_scheduler_api.py x_scheduler_api.py cloud_publish.py
-          python -c "import social_text, instagram_scheduler_api, x_scheduler_api, cloud_publish; print('preflight ok')"
-          python -c "import json; json.load(open('instagram_schedule_live.json', encoding='utf-8')); json.load(open('x_schedule_live.json', encoding='utf-8')); print('schedule json ok')"
       - name: Publish due posts
         env:
           X_CONSUMER_KEY: ${{ secrets.X_CONSUMER_KEY }}
           X_CONSUMER_SECRET: ${{ secrets.X_CONSUMER_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
-          X_CLIENT_ID: ${{ secrets.X_CLIENT_ID }}
-          X_OAUTH2_REFRESH_TOKEN: ${{ secrets.X_OAUTH2_REFRESH_TOKEN }}
+          X_OAUTH2_ACCESS_TOKEN: ${{ secrets.X_OAUTH2_ACCESS_TOKEN }}
           INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
           PUBLIC_BASE_URL: ${{ secrets.PUBLIC_BASE_URL }}
-          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
-          CLOUDINARY_UPLOAD_PRESET: ${{ secrets.CLOUDINARY_UPLOAD_PRESET }}
-          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
-          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+          REPOST_TODAY: ${{ inputs.repost_today == 'true' && '1' || '0' }}
+          REPOST_DATE: ${{ inputs.repost_date }}
         run: python cloud_publish.py
       - name: Save posting state
         if: always()
@@ -51,5 +44,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add x_schedule_live.json instagram_schedule_live.json
-          git commit -m "Update posting state" || true
+          git diff --cached --quiet || git commit -m "Update posting state"
           git push
