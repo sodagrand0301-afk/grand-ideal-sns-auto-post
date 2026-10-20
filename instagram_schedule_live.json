@@ -110,22 +110,28 @@
     "cancelled_at_jst": "2026-10-18T23:51:20+09:00"
   },
   "2026-10-20-10-00-Instagram": {
-    "status": "planned",
+    "status": "posted",
     "scheduled_at_jst": "2026-10-20T10:00:00+09:00",
     "image_path": "2026-10-20_1000_12_住宅ローンが通らない人の為のローン.png",
-    "error": ""
+    "error": "",
+    "post_id": "17885083821511039",
+    "posted_at_utc": "2026-10-20T01:07:37.298530+00:00"
   },
   "2026-10-20-14-00-Instagram": {
-    "status": "planned",
+    "status": "posted",
     "scheduled_at_jst": "2026-10-20T10:00:00+09:00",
     "image_path": "2026-10-20_1400_13_住宅ローン相談窓口_無料.png",
-    "error": ""
+    "error": "",
+    "post_id": "18124140688903486",
+    "posted_at_utc": "2026-10-20T01:07:48.958805+00:00"
   },
   "2026-10-20-18-00-Instagram": {
-    "status": "planned",
+    "status": "posted",
     "scheduled_at_jst": "2026-10-20T10:00:00+09:00",
     "image_path": "2026-10-20_1800_14_債務整理_ローン_組めた.png",
-    "error": ""
+    "error": "",
+    "post_id": "18188710966413790",
+    "posted_at_utc": "2026-10-20T01:08:01.184154+00:00"
   },
   "2026-10-21-10-00-Instagram": {
     "status": "planned",
