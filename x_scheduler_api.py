@@ -5,7 +5,6 @@ import os
 import threading
 import time
 from datetime import datetime, timedelta, timezone
-from getpass import getpass
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -58,15 +57,11 @@ class XPoster:
             "access_token": os.getenv("X_ACCESS_TOKEN"),
             "access_token_secret": os.getenv("X_ACCESS_TOKEN_SECRET"),
         }
-        self.oauth2_access_token = os.getenv("X_OAUTH2_ACCESS_TOKEN")
         if not all(values.values()):
-            print("OAuth1認証情報を入力してください。入力内容は保存・表示しません。")
-            values = {
-                "consumer_key": getpass("コンシューマーキー: "),
-                "consumer_secret": getpass("コンシューマーシークレット: "),
-                "access_token": getpass("アクセストークン: "),
-                "access_token_secret": getpass("アクセストークンシークレット: "),
-            }
+            raise RuntimeError(
+                "X OAuth1の4つのGitHub Secretsが未設定です。"
+                "X_CONSUMER_KEY / X_CONSUMER_SECRET / X_ACCESS_TOKEN / X_ACCESS_TOKEN_SECRETを設定してください。"
+            )
         self.auth = OAuth1(
             values["consumer_key"],
             client_secret=values["consumer_secret"],
@@ -78,38 +73,40 @@ class XPoster:
         # 長文投稿に対応したXアカウントでは、Instagramと同じ本文を使う。
         text = format_social_text(text, max_chars=4000)
 
-        # XのメディアアップロードはOAuth 1.0a User Contextを使用する。
+        # メディアはv1.1のOAuth 1.0a、本文はv2のOAuth 1.0a User Contextで投稿する。
         with image_path.open("rb") as image_file:
             upload = requests.post(
-                "https://api.x.com/1.1/media/upload.json",
+                "https://upload.twitter.com/1.1/media/upload.json",
                 files={"media": (image_path.name, image_file, "image/png")},
                 auth=self.auth,
                 timeout=60,
             )
         if not upload.ok:
-            raise RuntimeError(f"X画像アップロード失敗 ({upload.status_code}): {upload.text[:500]}")
+            raise RuntimeError(self._api_error("X画像アップロード", upload))
         media_id = upload.json().get("media_id_string")
         if not media_id:
             raise RuntimeError(f"X画像IDが返りませんでした: {upload.text[:500]}")
 
-        headers = {"Content-Type": "application/json"}
-        auth = self.auth
-        if False and self.oauth2_access_token:
-            # 本文投稿はOAuth 2.0 User Contextを優先する。Bearer Token
-            # (App-only)では投稿できないため、ユーザーアクセストークンを使う。
-            headers["Authorization"] = f"Bearer {self.oauth2_access_token}"
-            auth = None
         response = requests.post(
-            "https://api.x.com/1.1/statuses/update.json",
-            data={"status": text, "media_ids": media_id},
-            headers=headers,
-            auth=auth,
+            "https://api.x.com/2/tweets",
+            json={"text": text, "media": {"media_ids": [media_id]}},
+            auth=self.auth,
             timeout=30,
         )
         if not response.ok:
-            raise RuntimeError(f"X本文投稿失敗 ({response.status_code}): {response.text[:500]}")
-        payload = response.json()
-        return payload.get("id_str") or str(payload.get("id"))
+            raise RuntimeError(self._api_error("X本文投稿", response))
+        return response.json().get("data", {}).get("id", "")
+
+    @staticmethod
+    def _api_error(label, response):
+        """認証エラーを明示し、原因不明の再投稿を防ぐ。"""
+        detail = response.text[:500]
+        if response.status_code == 401:
+            return (
+                f"{label}失敗 (401 Unauthorized): X OAuth1ユーザートークンが無効、"
+                "期限切れ、または書き込み権限なし。GitHub Secretsを再発行・更新してください。"
+            )
+        return f"{label}失敗 ({response.status_code}): {detail}"
 
 
 def parse_time(value):
