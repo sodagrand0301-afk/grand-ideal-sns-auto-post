@@ -81,7 +81,7 @@ class XPoster:
         # XのメディアアップロードはOAuth 1.0a User Contextを使用する。
         with image_path.open("rb") as image_file:
             upload = requests.post(
-                "https://upload.x.com/1.1/media/upload.json",
+                "https://api.x.com/1.1/media/upload.json",
                 files={"media": (image_path.name, image_file, "image/png")},
                 auth=self.auth,
                 timeout=60,
