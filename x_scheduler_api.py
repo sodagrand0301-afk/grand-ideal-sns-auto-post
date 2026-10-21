@@ -93,12 +93,8 @@ class XPoster:
             raise RuntimeError(f"X画像IDが返りませんでした: {upload.text[:500]}")
 
         headers = {"Content-Type": "application/json"}
+        # OAuth1.0a User Contextで本文も投稿する。古いOAuth2トークンによる401を避ける。
         auth = self.auth
-        if self.oauth2_access_token:
-            # 本文投稿はOAuth 2.0 User Contextを優先する。Bearer Token
-            # (App-only)では投稿できないため、ユーザーアクセストークンを使う。
-            headers["Authorization"] = f"Bearer {self.oauth2_access_token}"
-            auth = None
         response = requests.post(
             "https://api.x.com/2/tweets",
             json={"text": text, "media": {"media_ids": [media_id]}},
