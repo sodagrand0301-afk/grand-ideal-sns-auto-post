@@ -94,21 +94,22 @@ class XPoster:
 
         headers = {"Content-Type": "application/json"}
         auth = self.auth
-        if False and self.oauth2_access_token:
+        if self.oauth2_access_token:
             # 本文投稿はOAuth 2.0 User Contextを優先する。Bearer Token
             # (App-only)では投稿できないため、ユーザーアクセストークンを使う。
             headers["Authorization"] = f"Bearer {self.oauth2_access_token}"
             auth = None
         response = requests.post(
-            "https://api.x.com/2/tweets",
-            json={"text": text, "media": {"media_ids": [media_id]}},
+            "https://api.x.com/1.1/statuses/update.json",
+            data={"status": text, "media_ids": media_id},
             headers=headers,
             auth=auth,
             timeout=30,
         )
         if not response.ok:
             raise RuntimeError(f"X本文投稿失敗 ({response.status_code}): {response.text[:500]}")
-        return response.json().get("data", {}).get("id")
+        payload = response.json()
+        return payload.get("id_str") or str(payload.get("id"))
 
 
 def parse_time(value):
