@@ -81,7 +81,7 @@ class XPoster:
         # XのメディアアップロードはOAuth 1.0a User Contextを使用する。
         with image_path.open("rb") as image_file:
             upload = requests.post(
-                "https://api.x.com/1.1/media/upload.json",
+                "https://upload.x.com/1.1/media/upload.json",
                 files={"media": (image_path.name, image_file, "image/png")},
                 auth=self.auth,
                 timeout=60,
@@ -100,16 +100,15 @@ class XPoster:
             headers["Authorization"] = f"Bearer {self.oauth2_access_token}"
             auth = None
         response = requests.post(
-            "https://api.x.com/1.1/statuses/update.json",
-            data={"status": text, "media_ids": media_id},
+            "https://api.x.com/2/tweets",
+            json={"text": text, "media": {"media_ids": [media_id]}},
             headers=headers,
             auth=auth,
             timeout=30,
         )
         if not response.ok:
             raise RuntimeError(f"X本文投稿失敗 ({response.status_code}): {response.text[:500]}")
-        payload = response.json()
-        return payload.get("id_str") or str(payload.get("id"))
+        return response.json().get("data", {}).get("id")
 
 
 def parse_time(value):
