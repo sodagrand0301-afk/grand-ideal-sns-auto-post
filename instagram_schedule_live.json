@@ -137,22 +137,28 @@
     "last_attempt_utc": "2026-10-20T03:14:04.848933+00:00"
   },
   "2026-10-21-10-00-Instagram": {
-    "status": "planned",
+    "status": "posted",
     "scheduled_at_jst": "2026-10-21T10:00:00+09:00",
     "image_path": "2026-10-21_1000_15_住宅ローン_ブラックリスト_確認.png",
-    "error": ""
+    "error": "",
+    "post_id": "18189745678416665",
+    "posted_at_utc": "2026-10-21T01:34:42.918574+00:00"
   },
   "2026-10-21-14-00-Instagram": {
-    "status": "planned",
+    "status": "posted",
     "scheduled_at_jst": "2026-10-21T10:00:00+09:00",
     "image_path": "2026-10-21_1400_16_45歳から住宅ローン.png",
-    "error": ""
+    "error": "",
+    "post_id": "18113610646855187",
+    "posted_at_utc": "2026-10-21T01:34:55.344545+00:00"
   },
   "2026-10-21-18-00-Instagram": {
-    "status": "planned",
+    "status": "posted",
     "scheduled_at_jst": "2026-10-21T10:00:00+09:00",
     "image_path": "2026-10-21_1800_17_マイホーム_マンション.png",
-    "error": ""
+    "error": "",
+    "post_id": "17882481840626988",
+    "posted_at_utc": "2026-10-21T01:35:06.462255+00:00"
   },
   "2026-10-22-10-00-Instagram": {
     "status": "planned",
