@@ -229,22 +229,28 @@
     "error": "10:00に3件投稿へ運用変更"
   },
   "2026-10-23-10-01-Instagram": {
-    "status": "planned",
+    "status": "posted",
     "scheduled_at_jst": "2026-10-23T10:00:00+09:00",
     "image_path": "2026-10-22_新規01_住宅ローン通りやすい.png",
-    "error": ""
+    "error": "",
+    "post_id": "18131311690624504",
+    "posted_at_utc": "2026-10-23T01:37:36.036620+00:00"
   },
   "2026-10-23-10-02-Instagram": {
-    "status": "planned",
+    "status": "posted",
     "scheduled_at_jst": "2026-10-23T10:00:00+09:00",
     "image_path": "2026-10-22_新規02_シングルマザー家を建てる.png",
-    "error": ""
+    "error": "",
+    "post_id": "18013772126761011",
+    "posted_at_utc": "2026-10-23T01:37:52.209651+00:00"
   },
   "2026-10-23-10-03-Instagram": {
-    "status": "planned",
+    "status": "posted",
     "scheduled_at_jst": "2026-10-23T10:00:00+09:00",
     "image_path": "2026-10-22_新規03_建売ローン通らない.png",
-    "error": ""
+    "error": "",
+    "post_id": "18111851675622903",
+    "posted_at_utc": "2026-10-23T01:38:03.953210+00:00"
   },
   "2026-10-24-10-01-Instagram": {
     "status": "planned",
