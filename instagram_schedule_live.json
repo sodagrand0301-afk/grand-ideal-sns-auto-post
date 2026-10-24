@@ -238,42 +238,42 @@
     "scheduled_at_jst": "2026-10-23T10:00:00+09:00",
     "image_path": "SNS投稿用画像/投稿済み_2026-10/2026-10-22_新規01_住宅ローン通りやすい.png",
     "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-10-24T05:27:01.463175+00:00"
+    "last_attempt_utc": "2026-10-24T09:25:55.751544+00:00"
   },
   "2026-10-23-10-02-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-10-23T10:00:00+09:00",
     "image_path": "SNS投稿用画像/投稿済み_2026-10/2026-10-22_新規02_シングルマザー家を建てる.png",
     "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-10-24T05:27:01.944119+00:00"
+    "last_attempt_utc": "2026-10-24T09:25:56.482191+00:00"
   },
   "2026-10-23-10-03-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-10-23T10:00:00+09:00",
     "image_path": "SNS投稿用画像/投稿済み_2026-10/2026-10-22_新規03_建売ローン通らない.png",
     "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-10-24T05:27:02.524994+00:00"
+    "last_attempt_utc": "2026-10-24T09:25:57.023088+00:00"
   },
   "2026-10-24-10-01-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-10-24T10:00:00+09:00",
     "image_path": "SNS投稿用画像/現行予約_2026-10/2026-10-22_新規04_シングルマザー住宅ローン.png",
     "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-10-24T05:27:02.970602+00:00"
+    "last_attempt_utc": "2026-10-24T09:25:57.516384+00:00"
   },
   "2026-10-24-10-02-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-10-24T10:00:00+09:00",
     "image_path": "SNS投稿用画像/現行予約_2026-10/2026-10-22_新規05_シングルマザーが家を買うには.png",
     "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-10-24T05:27:03.600276+00:00"
+    "last_attempt_utc": "2026-10-24T09:25:58.376165+00:00"
   },
   "2026-10-24-10-03-Instagram": {
     "status": "error",
     "scheduled_at_jst": "2026-10-24T10:00:00+09:00",
     "image_path": "SNS投稿用画像/現行予約_2026-10/2026-10-22_新規06_家購入一括払い.png",
     "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"Only photo or video can be accepted as media type.\",\"type\":\"OAuthException\",\"code\":9004,\"error_subcode\":2207052,\"is_transient\":false,\"error_user_title\":\"Media download has failed. The media URI doesn't meet our requirements.\",\"error_user_msg\":\"The media could not be fetched from",
-    "last_attempt_utc": "2026-10-24T05:27:04.170508+00:00"
+    "last_attempt_utc": "2026-10-24T09:25:59.109462+00:00"
   },
   "2026-10-25-10-01-Instagram": {
     "status": "planned",
