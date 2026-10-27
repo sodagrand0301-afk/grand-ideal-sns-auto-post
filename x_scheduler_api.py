@@ -5,6 +5,7 @@ import os
 import threading
 import time
 from datetime import datetime, timedelta, timezone
+from getpass import getpass
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -73,7 +74,7 @@ class XPoster:
         # 長文投稿に対応したXアカウントでは、Instagramと同じ本文を使う。
         text = format_social_text(text, max_chars=4000)
 
-        # メディアはv1.1のOAuth 1.0a、本文はv2のOAuth 1.0a User Contextで投稿する。
+        # XのメディアアップロードはOAuth 1.0a User Contextを使用する。
         with image_path.open("rb") as image_file:
             upload = requests.post(
                 "https://upload.twitter.com/1.1/media/upload.json",
@@ -99,7 +100,7 @@ class XPoster:
 
     @staticmethod
     def _api_error(label, response):
-        """認証エラーを明示し、原因不明の再投稿を防ぐ。"""
+        """認証エラーを再試行ループに入れず、必要な対応を明示する。"""
         detail = response.text[:500]
         if response.status_code == 401:
             return (
@@ -124,8 +125,10 @@ def run_due(poster):
         instagram_texts = load_instagram_texts()
         changed = False
         for item in items:
-            # failed posts are retryable on the next cloud run; posted posts are final.
-            if item.get("status") in {"posted", "cancelled"}:
+            # 自動実行で処理するのは新規のplannedだけに限定する。
+            # error / needs_review / needs_text_review は原因確認後に
+            # 明示的に planned へ戻した場合だけ再試行する。
+            if item.get("status") != "planned":
                 continue
             matching_text = instagram_texts.get(item.get("post_key", ""))
             if matching_text and item.get("text") != matching_text:

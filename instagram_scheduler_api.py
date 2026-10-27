@@ -11,16 +11,11 @@ from urllib.parse import quote
 
 import requests
 import truststore
+from social_text import format_social_text, validate_post
 
 
 truststore.inject_into_ssl()
 
-
-def format_social_text(text: str, max_chars: int | None = None) -> str:
-    cleaned = text.replace("\r\n", "\n").replace("\r", "\n").strip()
-    if max_chars is not None and len(cleaned) > max_chars:
-        return cleaned[:max_chars].rstrip() + "…"
-    return cleaned
 
 ROOT = Path(__file__).resolve().parent
 CSV_FILE = ROOT / "instagram_schedule_2026-10-05_onward.csv"
@@ -69,12 +64,16 @@ def save_state(state: dict[str, dict]) -> None:
 
 
 def caption(row: dict[str, str]) -> str:
-    return format_social_text(row["text"], max_chars=2200)
+    text = format_social_text(row["text"], max_chars=2200)
+    errors = validate_post({**row, "text": text}, ROOT, 2200)
+    if errors:
+        raise RuntimeError("投稿前検査エラー: " + " / ".join(errors))
+    return text
 
 
 def publish(row: dict[str, str], token: str) -> str:
-    image_name = Path(row["image_path"].replace("/", "\\")).name
-    image_url = row["image_path"] if row["image_path"].startswith("http") else f"{PUBLIC_BASE_URL.rstrip('/')}/{quote(image_name)}"
+    image_ref = row["image_path"].replace("\\", "/").lstrip("/")
+    image_url = row["image_path"] if row["image_path"].startswith("http") else f"{PUBLIC_BASE_URL.rstrip('/')}/{quote(image_ref, safe='/')}"
     created = safe_post(
         api_url(f"{IG_USER_ID}/media"),
         data={"image_url": image_url, "caption": caption(row), "access_token": token},
@@ -119,7 +118,7 @@ def main() -> None:
         raise SystemExit("アクセストークンが空です。")
     rows = load_rows()
     state = load_state()
-    print(f"Instagram予約API起動: {len(rows)}件 / 毎日10:00・14:00・18:00（日本時間）")
+    print(f"Instagram予約API起動: {len(rows)}件 / 毎日10:00（日本時間）")
     print("このPowerShellとパソコンをスリープさせないでください。終了はCtrl+Cです。")
     while True:
         now = datetime.now(timezone.utc)
