@@ -1,21 +1,14 @@
 name: Scheduled SNS posts
 
 on:
-  push:
-    branches:
-      - main
   schedule:
-    - cron: "0 1,5,9 * * *"
+    # 10:00 JST = 01:00 UTC
+    - cron: "0 1 * * *"
   workflow_dispatch:
-    inputs:
-      repost_today:
-        description: "本日の投稿を削除して再投稿する"
-        required: false
-        default: "false"
-      repost_date:
-        description: "再投稿対象日 (YYYY-MM-DD)"
-        required: false
-        default: ""
+
+concurrency:
+  group: sns-scheduled-post
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -38,8 +31,6 @@ jobs:
           X_OAUTH2_ACCESS_TOKEN: ${{ secrets.X_OAUTH2_ACCESS_TOKEN }}
           INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
           PUBLIC_BASE_URL: ${{ secrets.PUBLIC_BASE_URL }}
-          REPOST_TODAY: ${{ inputs.repost_today == 'true' && '1' || '0' }}
-          REPOST_DATE: ${{ inputs.repost_date }}
         run: python cloud_publish.py
       - name: Save posting state
         if: always()
