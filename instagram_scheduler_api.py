@@ -82,6 +82,15 @@ def delete_media(media_id: str, token: str) -> None:
     response = safe_delete(api_url(media_id), data={"access_token": token}, timeout=45)
     if response.status_code == 404:
         return
+    if response.status_code == 400:
+        try:
+            error = response.json().get("error", {})
+            # Meta API may report an already-deleted/inaccessible object as code 100/subcode 33.
+            # Treat it as absent so a manual UI deletion does not block the replacement post.
+            if error.get("code") == 100 and error.get("error_subcode") == 33:
+                return
+        except ValueError:
+            pass
     if not response.ok:
         raise RuntimeError(f"旧Instagram投稿の削除失敗 HTTP {response.status_code}: {response.text[:300]}")
 
