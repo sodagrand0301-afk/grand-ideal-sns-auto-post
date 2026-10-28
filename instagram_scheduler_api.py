@@ -124,14 +124,28 @@ def publish(row: dict[str, str], token: str) -> str:
     else:
         raise RuntimeError("メディア処理が時間内に完了しませんでした。")
 
-    published = safe_post(
-        api_url(f"{IG_USER_ID}/media_publish"),
-        data={"creation_id": container_id, "access_token": token},
-        timeout=45,
-    )
-    if not published.ok:
-        raise RuntimeError(f"Instagram投稿失敗 HTTP {published.status_code}: {published.text[:300]}")
-    return published.json().get("id", "")
+    # Meta may briefly report that a finished container is not yet publishable.
+    # Retry only that transient condition; never retry a completed publish.
+    for attempt in range(3):
+        published = safe_post(
+            api_url(f"{IG_USER_ID}/media_publish"),
+            data={"creation_id": container_id, "access_token": token},
+            timeout=45,
+        )
+        if published.ok:
+            return published.json().get("id", "")
+        try:
+            error = published.json().get("error", {})
+        except ValueError:
+            error = {}
+        transient_not_ready = (
+            published.status_code == 400
+            and error.get("code") == 9007
+            and error.get("error_subcode") == 2207027
+        )
+        if not transient_not_ready or attempt == 2:
+            raise RuntimeError(f"Instagram投稿失敗 HTTP {published.status_code}: {published.text[:300]}")
+        time.sleep(15)
 
 
 def main() -> None:
