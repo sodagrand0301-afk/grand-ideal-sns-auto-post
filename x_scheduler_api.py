@@ -98,6 +98,17 @@ class XPoster:
             raise RuntimeError(self._api_error("X本文投稿", response))
         return response.json().get("data", {}).get("id", "")
 
+    def delete(self, post_id):
+        response = requests.delete(
+            f"https://api.x.com/2/tweets/{post_id}",
+            auth=self.auth,
+            timeout=30,
+        )
+        if response.status_code == 404:
+            return
+        if not response.ok:
+            raise RuntimeError(self._api_error("X旧投稿削除", response))
+
     @staticmethod
     def _api_error(label, response):
         """認証エラーを再試行ループに入れず、必要な対応を明示する。"""
@@ -161,9 +172,15 @@ def run_due(poster):
                 changed = True
                 continue
             try:
+                replacement_id = item.get("replace_post_id")
+                if replacement_id:
+                    poster.delete(replacement_id)
                 post_id = poster.post(image_path, item["text"])
                 item["status"] = "posted"
                 item["post_id"] = post_id
+                if replacement_id:
+                    item["replaced_post_id"] = replacement_id
+                    item.pop("replace_post_id", None)
                 item["posted_at"] = datetime.now(JST).isoformat()
                 item["error"] = ""
             except Exception as exc:  # noqa: BLE001

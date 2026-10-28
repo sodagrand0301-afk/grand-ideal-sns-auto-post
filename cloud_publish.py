@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 from datetime import datetime, timezone
 
-from instagram_scheduler_api import load_rows, load_state, publish, save_state
+from instagram_scheduler_api import delete_media, load_rows, load_state, publish, save_state
 from x_scheduler_api import XPoster, load_items, run_due, save_items
 
 
@@ -28,8 +28,14 @@ def main() -> None:
         if scheduled > now:
             continue
         try:
-            post_id = publish(row, __import__("os").environ["INSTAGRAM_ACCESS_TOKEN"])
+            replacement_id = item.get("replace_post_id")
+            if replacement_id:
+                delete_media(replacement_id, os.environ["INSTAGRAM_ACCESS_TOKEN"])
+            post_id = publish(row, os.environ["INSTAGRAM_ACCESS_TOKEN"])
             item.update({"status": "posted", "post_id": post_id, "posted_at_utc": datetime.now(timezone.utc).isoformat(), "error": ""})
+            if replacement_id:
+                item["replaced_post_id"] = replacement_id
+                item.pop("replace_post_id", None)
             print(f"Instagram投稿成功: {key} / 投稿ID {post_id}")
         except Exception as exc:
             item.update({"status": "error", "error": str(exc)[:500], "last_attempt_utc": datetime.now(timezone.utc).isoformat()})

@@ -48,6 +48,13 @@ def safe_post(*args, **kwargs):
         raise RuntimeError("ネットワーク接続に失敗しました（トークンは表示しません）。") from exc
 
 
+def safe_delete(*args, **kwargs):
+    try:
+        return requests.delete(*args, **kwargs)
+    except requests.RequestException as exc:
+        raise RuntimeError("ネットワーク接続に失敗しました（トークンは表示しません）。") from exc
+
+
 def load_rows() -> list[dict[str, str]]:
     with CSV_FILE.open(encoding="utf-8-sig", newline="") as f:
         return list(csv.DictReader(f))
@@ -69,6 +76,14 @@ def caption(row: dict[str, str]) -> str:
     if errors:
         raise RuntimeError("投稿前検査エラー: " + " / ".join(errors))
     return text
+
+
+def delete_media(media_id: str, token: str) -> None:
+    response = safe_delete(api_url(media_id), data={"access_token": token}, timeout=45)
+    if response.status_code == 404:
+        return
+    if not response.ok:
+        raise RuntimeError(f"旧Instagram投稿の削除失敗 HTTP {response.status_code}: {response.text[:300]}")
 
 
 def publish(row: dict[str, str], token: str) -> str:

@@ -1,6 +1,9 @@
 name: Scheduled SNS posts
 
 on:
+  push:
+    paths:
+      - "manual_repost_trigger.txt"
   schedule:
     # 10:00 JST = 01:00 UTC
     - cron: "0 1 * * *"
