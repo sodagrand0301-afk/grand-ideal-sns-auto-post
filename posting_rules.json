@@ -1,0 +1,43 @@
+{
+  "image": {
+    "width": 1080,
+    "height": 1440,
+    "aspect_ratio": "3:4",
+    "instagram_crop": "元の比率"
+  },
+  "caption": {
+    "minimum_characters": 250,
+    "maximum_characters_instagram": 2200,
+    "maximum_characters_x": 4000,
+    "forbidden_phrases": ["画像のポイントは"],
+    "minimum_hashtags": 5,
+    "brand_cta": "グランイデアルは不動産に関わる全ての事をサポートいたします。",
+    "line_cta": "詳しくは公式LINEまでご相談ください。",
+    "footer_rule": "本文の後にブランドCTA、公式LINE案内、空行、ハッシュタグの順で配置する"
+  },
+  "reservation_preflight": {
+    "required": true,
+    "description": "予約登録前に、過去投稿と既存予約を照合し、画像・本文・テーマの重複を確認する",
+    "compare_against": [
+      "Instagram公開済み投稿履歴",
+      "X公開済み投稿履歴",
+      "Instagram既存予約",
+      "X既存予約"
+    ],
+    "compare_fields": [
+      "post_key",
+      "image_hash",
+      "image_path",
+      "caption_hash",
+      "caption_text",
+      "theme",
+      "headline",
+      "check_items",
+      "scheduled_at",
+      "platform"
+    ],
+    "duplicate_policy": "重複が1件でも見つかった場合は予約登録を停止し、原因を記録して別の未使用画像・本文・テーマに差し替える。過去投稿や既存予約を確認できない場合も登録しない。",
+    "same_day_policy": "同一日に同じ画像・本文・テーマ・見出し・確認項目を再使用しない",
+    "approval_state": "予約前照合済み"
+  }
+}
