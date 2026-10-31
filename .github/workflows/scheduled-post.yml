@@ -5,8 +5,11 @@ on:
     paths:
       - "manual_repost_trigger.txt"
   schedule:
-    # 10:00 JST = 01:00 UTC
-    - cron: "0 1 * * *"
+    # 主実行: 10:03 JST。GitHubの毎時ちょうどの混雑を避ける。
+    - cron: "3 1 * * *"
+    # 予備実行: 10:20 JST。主実行が未起動・遅延した場合に確認する。
+    # 投稿済みの予約キーは状態ファイルでスキップし、重複投稿を防ぐ。
+    - cron: "20 1 * * *"
   workflow_dispatch:
 
 concurrency:
@@ -21,6 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Refresh latest posting state
+        run: |
+          git fetch origin main --depth=1
+          git checkout -B main origin/main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
