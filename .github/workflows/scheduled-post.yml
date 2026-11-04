@@ -5,14 +5,11 @@ on:
     paths:
       - "manual_repost_trigger.txt"
   schedule:
-    # GitHub Actionsのscheduledは遅延・欠落することがあるため、10時台に複数回確認する。
-    # すでに投稿済みの予約キーは状態ファイルでスキップし、重複投稿を防ぐ。
-    - cron: "3 1 * * *"   # 10:03 JST 主実行
-    - cron: "10 1 * * *"  # 10:10 JST 予備
-    - cron: "20 1 * * *"  # 10:20 JST 予備
-    - cron: "30 1 * * *"  # 10:30 JST 予備
-    - cron: "40 1 * * *"  # 10:40 JST 予備
-    - cron: "50 1 * * *"  # 10:50 JST 最終予備
+    # GitHub Actionsのscheduledは遅延・欠落することがあるため、10時台に繰り返し確認する。
+    # いずれかの実行が成功すれば、状態ファイルで投稿済み予約キーをスキップし、重複投稿を防ぐ。
+    - cron: "3 1 * * *"    # 10:03 JST 主実行
+    - cron: "*/5 1 * * *"  # 10:00〜10:55 JST 5分間隔の予備実行
+    - cron: "0 2 * * *"    # 11:00 JST 最終予備実行
   workflow_dispatch:
 
 concurrency:
