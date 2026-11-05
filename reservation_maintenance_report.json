@@ -1,0 +1,20 @@
+{
+  "checked_at_jst": "2026-11-05T16:37:13.241180+09:00",
+  "status": "blocked_missing_assets",
+  "target_future_dates": [
+    "2026-11-06",
+    "2026-11-07",
+    "2026-11-08"
+  ],
+  "complete_future_dates": [
+    "2026-11-06",
+    "2026-11-07"
+  ],
+  "missing_dates": [
+    "2026-11-08"
+  ],
+  "required_queue_items": 3,
+  "queue_available": 0,
+  "validation_errors": [],
+  "message": "不足分を埋める画像・本文が3件単位でそろっていないため、重複防止のため予約登録を行いません。"
+}
