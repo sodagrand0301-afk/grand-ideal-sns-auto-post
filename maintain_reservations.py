@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import io
 import json
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -44,7 +45,7 @@ def load_csv_text() -> str:
 
 
 def load_ig_rows(csv_text: str) -> list[dict[str, str]]:
-    return list(csv.DictReader(csv_text.splitlines()))
+    return list(csv.DictReader(io.StringIO(csv_text)))
 
 
 def write_report(payload: dict) -> None:
@@ -137,8 +138,16 @@ def main() -> None:
     target_dates = [start + timedelta(days=i) for i in range(3)]
     complete_dates = complete_future_dates(x_items, ig_rows, ig_state)
     missing_dates = [target for target in target_dates if target not in complete_dates]
-    used_images = {item.get("image_path", "") for item in x_items}
-    used_images.update(row.get("image_path", "") for row in ig_rows)
+    used_image_names = {
+        Path(str(item.get("image_path", "")).replace("\\\\", "/")).name
+        for item in x_items
+        if item.get("image_path")
+    }
+    used_image_names.update(
+        Path(str(row.get("image_path", "")).replace("\\\\", "/")).name
+        for row in ig_rows
+        if row.get("image_path")
+    )
     used_keys = {item.get("post_key", "") for item in x_items}
     used_keys.update(row.get("post_key", "") for row in ig_rows)
 
@@ -149,13 +158,14 @@ def main() -> None:
     for candidate in queue:
         image_path = str(candidate.get("image_path", "")).replace("\\", "/").lstrip("/")
         text = str(candidate.get("text", ""))
-        if image_path in seen_queue_images:
+        image_name = Path(image_path).name
+        if image_name in seen_queue_images:
             validation_errors.append(f"キュー内画像重複: {image_path}")
             continue
         if text in seen_queue_texts:
             validation_errors.append(f"キュー内本文重複: {image_path}")
             continue
-        if image_path in used_images:
+        if Path(image_path).name in used_image_names:
             validation_errors.append(f"既存予約・投稿と画像重複: {image_path}")
             continue
         ok, reason = image_is_valid(image_path)
@@ -166,7 +176,7 @@ def main() -> None:
         if not ok:
             validation_errors.append(f"{image_path}: {reason}")
             continue
-        seen_queue_images.add(image_path)
+        seen_queue_images.add(image_name)
         seen_queue_texts.add(text)
         valid_queue.append({"image_path": image_path, "text": text})
 
