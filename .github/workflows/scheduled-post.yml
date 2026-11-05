@@ -33,6 +33,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
+      - name: Maintain 3-day reservation horizon
+        run: python maintain_reservations.py
       - name: Publish due posts
         env:
           X_CONSUMER_KEY: ${{ secrets.X_CONSUMER_KEY }}
@@ -48,6 +50,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add x_schedule_live.json instagram_schedule_live.json
+          git add x_schedule_live.json instagram_schedule_live.json instagram_schedule_2026-10-05_onward.csv reservation_queue.json reservation_maintenance_report.json
           git diff --cached --quiet || git commit -m "Update posting state"
           git push
