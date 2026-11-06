@@ -1,1 +1,1 @@
-manual repost trigger: run due posts for 2026-11-05 JST; requested completion report
+manual repost trigger: run due posts for 2026-11-06 JST; duplicate-safe execution requested
