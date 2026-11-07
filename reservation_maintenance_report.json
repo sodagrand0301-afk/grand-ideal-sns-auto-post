@@ -1,19 +1,18 @@
 {
-  "checked_at_jst": "2026-11-06T18:04:19.580946+09:00",
+  "checked_at_jst": "2026-11-07T11:12:47.245706+09:00",
   "status": "blocked_missing_assets",
   "target_future_dates": [
-    "2026-11-07",
     "2026-11-08",
-    "2026-11-09"
+    "2026-11-09",
+    "2026-11-10"
   ],
-  "complete_future_dates": [
-    "2026-11-07"
-  ],
+  "complete_future_dates": [],
   "missing_dates": [
     "2026-11-08",
-    "2026-11-09"
+    "2026-11-09",
+    "2026-11-10"
   ],
-  "required_queue_items": 6,
+  "required_queue_items": 9,
   "queue_available": 0,
   "validation_errors": [],
   "message": "不足分を埋める画像・本文が3件単位でそろっていないため、重複防止のため予約登録を行いません。"
