@@ -1,16 +1,16 @@
 {
-  "checked_at_jst": "2026-11-07T17:31:41.109496+09:00",
+  "checked_at_jst": "2026-11-08T15:51:11.946228+09:00",
   "status": "blocked_missing_assets",
   "target_future_dates": [
-    "2026-11-08",
     "2026-11-09",
-    "2026-11-10"
+    "2026-11-10",
+    "2026-11-11"
   ],
   "complete_future_dates": [],
   "missing_dates": [
-    "2026-11-08",
     "2026-11-09",
-    "2026-11-10"
+    "2026-11-10",
+    "2026-11-11"
   ],
   "required_queue_items": 9,
   "queue_available": 0,
