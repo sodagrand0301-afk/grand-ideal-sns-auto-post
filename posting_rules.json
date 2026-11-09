@@ -61,9 +61,8 @@
     "fail_safe": "予備候補が不足する場合は重複投稿を避けて予約登録を停止し、不足数と原因をレポートする。"
   },
   "source_terms": {
-    "canonical_repository_file": "資料/検索ワード のコピー.xlsx",
-    "normalized_runtime_file": "search_terms.json",
-    "sha256": "780CF9A2CB64D6DCE9BCBCDA2ECA84742FF7EAB59ABEF1E649525CAC1D5C574C",
-    "policy": "GitHub上のExcelコピーと、そのExcelから抽出した順序保持済み検索語句一覧を自動処理の正式な参照元とする。ローカルPCが停止中でもActionsはGitHub上の参照元で処理する。"
+    "canonical_repository_file": "search_terms.json",
+    "source_excel_reference": "C:\\Users\\sodakyohei\\仕事\\Codex SNS投稿\\資料\\検索ワード のコピー.xlsx",
+    "policy": "GitHub Actionsはsearch_terms.jsonを正式な実行参照元とし、Excelの検索語句を順序保持した一覧として利用する。ローカルPCの起動状態に依存せず、予約候補を自動補充する。元Excelを変更した場合は、変更後の一覧をGitHubへ同期してから実行する。"
   }
 }
