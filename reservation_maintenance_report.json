@@ -1,23 +1,18 @@
 {
-  "checked_at_jst": "2026-11-09T11:18:35.972755+09:00",
-  "status": "blocked_missing_assets",
+  "checked_at_jst": "2026-11-09T11:20:56.928199+09:00",
+  "status": "added",
   "target_future_dates": [
     "2026-11-10",
     "2026-11-11",
     "2026-11-12"
   ],
-  "complete_future_dates": [],
-  "missing_dates": [
+  "complete_future_dates_before": [],
+  "added_dates": [
     "2026-11-10",
     "2026-11-11",
     "2026-11-12"
   ],
-  "required_queue_items": 9,
-  "queue_available": 6,
-  "validation_errors": [
-    "既存予約・投稿と画像重複: SNS投稿用画像/整理作成_2026-10/2026-10-27_整理07_収入合算住宅ローン審査.png",
-    "既存予約・投稿と画像重複: SNS投稿用画像/整理作成_2026-10/2026-10-27_整理08_一軒家一括.png",
-    "既存予約・投稿と画像重複: SNS投稿用画像/整理作成_2026-10/2026-10-27_整理09_住宅ローンペアローン.png"
-  ],
-  "message": "不足分を埋める画像・本文が3件単位でそろっていないため、重複防止のため予約登録を行いません。"
+  "added_items_per_platform": 9,
+  "queue_remaining": 0,
+  "validation_errors": []
 }
