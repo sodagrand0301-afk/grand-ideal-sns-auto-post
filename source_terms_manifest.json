@@ -1,0 +1,6 @@
+{
+  "xlsx_path": "資料/検索ワード のコピー.xlsx",
+  "xlsx_sha256": "780cf9a2cb64d6dce9bcda2eca84742ff7eab59abef1e649525cac1d5c574c",
+  "normalized_terms_file": "search_terms.json",
+  "source_note": "Excel原本から順序を保持して抽出した一覧"
+}

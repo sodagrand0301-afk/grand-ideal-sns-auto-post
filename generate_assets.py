@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import re
 import unicodedata
 from datetime import datetime, timedelta, timezone
@@ -11,6 +12,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parent
 QUEUE_FILE = ROOT / "reservation_queue.json"
 TERMS_FILE = ROOT / "search_terms.json"
+SOURCE_MANIFEST_FILE = ROOT / "source_terms_manifest.json"
 USED_TERMS_FILE = ROOT / "generated_terms.json"
 IMAGE_DIR = ROOT / "SNS投稿用画像" / "generated"
 JST = timezone(timedelta(hours=9), "JST")
@@ -29,6 +31,19 @@ def load_json(path: Path, default):
     if not path.exists():
         return default
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def verify_source_manifest() -> None:
+    if not SOURCE_MANIFEST_FILE.exists():
+        return
+    manifest = load_json(SOURCE_MANIFEST_FILE, {})
+    source_path = ROOT / str(manifest.get("xlsx_path", ""))
+    expected = str(manifest.get("xlsx_sha256", "")).lower()
+    if not source_path.is_file() or not expected:
+        raise RuntimeError("Excel原本または原本ハッシュがありません。生成を停止します。")
+    actual = hashlib.sha256(source_path.read_bytes()).hexdigest().lower()
+    if actual != expected:
+        raise RuntimeError("Excel原本と登録済みハッシュが一致しません。検索語句の同期後に再実行してください。")
 
 
 def font(size: int, bold: bool = False):
@@ -140,6 +155,7 @@ def draw_image(term: str, checks: list[str], output: Path, sequence: int) -> Non
 
 
 def main() -> None:
+    verify_source_manifest()
     queue = load_json(QUEUE_FILE, [])
     if not isinstance(queue, list):
         queue = []
