@@ -1,1 +1,1 @@
-manual repost trigger: replenish verified image/caption buffer, validate future reservations, and execute due posts without duplicates; requested at 2026-11-09T15:00:00+09:00
+manual automation test: verify image/caption auto-generation pipeline, buffer replenishment, reservation validation, and duplicate-safe publishing; requested at 2026-11-09T15:25:00+09:00
