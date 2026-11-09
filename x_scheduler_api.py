@@ -1,5 +1,6 @@
 import argparse
 import csv
+import mimetypes
 import json
 import os
 import threading
@@ -75,10 +76,11 @@ class XPoster:
         text = format_social_text(text, max_chars=4000)
 
         # XのメディアアップロードはOAuth 1.0a User Contextを使用する。
+        mime_type = mimetypes.guess_type(image_path.name)[0] or "application/octet-stream"
         with image_path.open("rb") as image_file:
             upload = requests.post(
                 "https://upload.twitter.com/1.1/media/upload.json",
-                files={"media": (image_path.name, image_file, "image/png")},
+                files={"media": (image_path.name, image_file, mime_type)},
                 auth=self.auth,
                 timeout=60,
             )
