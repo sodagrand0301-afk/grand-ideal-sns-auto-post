@@ -1,1 +1,1 @@
-manual automation test: verify reliable GitHub-side term source, image/caption generation, reserve replenishment, reservation validation, and duplicate-safe publishing; requested at 2026-11-09T16:50:00+09:00
+manual automation test: verify MIME-safe X upload, isolated platform credentials, fitted image titles, pinned dependencies, reserve replenishment, and duplicate-safe publishing; requested at 2026-11-09T17:05:00+09:00
