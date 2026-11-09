@@ -1,5 +1,5 @@
 {
-  "checked_at_jst": "2026-11-09T14:19:08.079285+09:00",
+  "checked_at_jst": "2026-11-09T14:47:48.879485+09:00",
   "status": "ok",
   "target_future_dates": [
     "2026-11-10",
@@ -12,10 +12,10 @@
     "2026-11-12"
   ],
   "added_dates": [],
-  "queue_available": 0,
+  "queue_available": 9,
   "buffer_target": 9,
   "buffer_replenish_trigger": 6,
-  "buffer_status": "low",
-  "buffer_shortfall": 9,
+  "buffer_status": "ready",
+  "buffer_shortfall": 0,
   "validation_errors": []
 }
