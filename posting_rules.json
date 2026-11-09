@@ -59,5 +59,11 @@
     ],
     "policy": "未来3日分の予約に加え、検証済みの画像・本文を9件予備保持する。予備が6件以下になった時点で補充を開始し、3件単位で追加する。",
     "fail_safe": "予備候補が不足する場合は重複投稿を避けて予約登録を停止し、不足数と原因をレポートする。"
+  },
+  "source_terms": {
+    "canonical_repository_file": "資料/検索ワード のコピー.xlsx",
+    "normalized_runtime_file": "search_terms.json",
+    "sha256": "780CF9A2CB64D6DCE9BCBCDA2ECA84742FF7EAB59ABEF1E649525CAC1D5C574C",
+    "policy": "GitHub上のExcelコピーと、そのExcelから抽出した順序保持済み検索語句一覧を自動処理の正式な参照元とする。ローカルPCが停止中でもActionsはGitHub上の参照元で処理する。"
   }
 }
