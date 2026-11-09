@@ -1,1 +1,1 @@
-manual repost trigger: run due posts for 2026-11-09 JST at 12:08; three verified unused posts added; duplicate-safe execution requested; requested at 2026-11-09T12:08:00+09:00
+manual repost trigger: validate reservation horizon and early buffer monitoring; no duplicate posting requested; requested at 2026-11-09T12:20:00+09:00
