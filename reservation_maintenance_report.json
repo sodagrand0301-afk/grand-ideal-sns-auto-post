@@ -1,18 +1,17 @@
 {
-  "checked_at_jst": "2026-11-09T11:20:56.928199+09:00",
-  "status": "added",
+  "checked_at_jst": "2026-11-09T12:10:14.269406+09:00",
+  "status": "ok",
   "target_future_dates": [
     "2026-11-10",
     "2026-11-11",
     "2026-11-12"
   ],
-  "complete_future_dates_before": [],
-  "added_dates": [
+  "complete_future_dates": [
     "2026-11-10",
     "2026-11-11",
     "2026-11-12"
   ],
-  "added_items_per_platform": 9,
-  "queue_remaining": 0,
+  "added_dates": [],
+  "queue_available": 0,
   "validation_errors": []
 }
