@@ -19,6 +19,8 @@ WIDTH = 1080
 HEIGHT = 1440
 BRAND = "グランイデアルは不動産に関わる全ての事をサポートいたします。"
 LINE = "詳しくは公式LINEまでご相談ください。"
+BUFFER_TARGET = 9
+BUFFER_REPLENISH_TRIGGER = 6
 
 
 def now_jst() -> datetime:
@@ -189,6 +191,10 @@ def main() -> None:
             "complete_future_dates": [d.isoformat() for d in complete_dates],
             "added_dates": [],
             "queue_available": len(valid_queue),
+            "buffer_target": BUFFER_TARGET,
+            "buffer_replenish_trigger": BUFFER_REPLENISH_TRIGGER,
+            "buffer_status": "ready" if len(valid_queue) >= BUFFER_TARGET else "low",
+            "buffer_shortfall": max(0, BUFFER_TARGET - len(valid_queue)),
             "validation_errors": validation_errors,
         }
         write_report(report)
@@ -204,8 +210,12 @@ def main() -> None:
             "missing_dates": [d.isoformat() for d in missing_dates],
             "required_queue_items": needed,
             "queue_available": len(valid_queue),
+            "buffer_target": BUFFER_TARGET,
+            "buffer_replenish_trigger": BUFFER_REPLENISH_TRIGGER,
+            "buffer_status": "blocked",
+            "buffer_shortfall": max(0, BUFFER_TARGET - len(valid_queue)),
             "validation_errors": validation_errors,
-            "message": "不足分を埋める画像・本文が3件単位でそろっていないため、重複防止のため予約登録を行いません。",
+            "message": "予約候補の予備が不足しているため、重複防止のため予約登録を行いません。画像・本文を3件単位で補充してください。",
         }
         write_report(report)
         print("::warning::" + report["message"])
@@ -266,6 +276,10 @@ def main() -> None:
         "added_dates": added_dates,
         "added_items_per_platform": len(csv_rows),
         "queue_remaining": len(remaining_queue),
+        "buffer_target": BUFFER_TARGET,
+        "buffer_replenish_trigger": BUFFER_REPLENISH_TRIGGER,
+        "buffer_status": "ready" if len(remaining_queue) >= BUFFER_TARGET else "low",
+        "buffer_shortfall": max(0, BUFFER_TARGET - len(remaining_queue)),
         "validation_errors": validation_errors,
     }
     write_report(report)
