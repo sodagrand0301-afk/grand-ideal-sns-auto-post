@@ -1,4 +1,4 @@
-requests
-requests-oauthlib
-truststore
-Pillow
+requests==2.34.2
+requests-oauthlib==2.0.0
+truststore==0.10.5
+Pillow==13.0.0
