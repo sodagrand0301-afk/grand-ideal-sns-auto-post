@@ -1,1 +1,1 @@
-manual repost trigger: validate reservation horizon and early buffer monitoring; no duplicate posting requested; requested at 2026-11-09T12:20:00+09:00
+manual repost trigger: replenish verified image/caption buffer, validate future reservations, and execute due posts without duplicates; requested at 2026-11-09T15:00:00+09:00
