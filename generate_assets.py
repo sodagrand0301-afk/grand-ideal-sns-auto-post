@@ -96,6 +96,16 @@ def wrap_title(title: str) -> str:
     return title[:midpoint] + "\n" + title[midpoint:]
 
 
+def fit_title(draw: ImageDraw.ImageDraw, title: str):
+    lines = wrap_title(title)
+    for size in range(66, 31, -2):
+        candidate = font(size, True)
+        left, top, right, bottom = draw.multiline_textbbox((0, 0), lines, font=candidate, spacing=8)
+        if right - left <= 900 and bottom - top <= 220:
+            return lines, candidate
+    return lines, font(32, True)
+
+
 def caption_for(term: str, checks: list[str]) -> str:
     topic = clean_term(term)
     lines = [
@@ -137,8 +147,8 @@ def draw_image(term: str, checks: list[str], output: Path, sequence: int) -> Non
     draw.rounded_rectangle((35, 35, 1045, 545), radius=28, fill="#ffffff", outline="#b6d8ef", width=5)
     draw.rounded_rectangle((70, 70, 680, 132), radius=24, fill="#e9345b")
     draw.text((375, 101), "住宅ローン審査のリアル", font=font(34, True), fill="white", anchor="mm")
-    title = wrap_title(clean_term(term))
-    draw.multiline_text((75, 170), title, font=font(66, True), fill="#073b82", spacing=8)
+    title, title_font = fit_title(draw, clean_term(term))
+    draw.multiline_text((75, 170), title, font=title_font, fill="#073b82", spacing=8)
     draw.text((78, 420), "検索語句から確認項目を整理", font=font(31, True), fill="#096da9")
     draw.rounded_rectangle((50, 610, 1030, 1215), radius=30, fill="#f4fbff", outline="#2588c2", width=5)
     draw.rounded_rectangle((90, 650, 500, 720), radius=22, fill="#073b82")
