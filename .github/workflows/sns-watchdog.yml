@@ -1,0 +1,95 @@
+name: SNS Actions watchdog
+
+on:
+  schedule:
+    # 10:30 JST and 10:45 JST. Check whether the 10:00 JST posting window ran.
+    - cron: "30 1 * * *"
+    - cron: "45 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check today's posting run and restart if needed
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          WORKFLOW_FILE: scheduled-post.yml
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import sys
+          from datetime import datetime, timedelta, timezone
+          from urllib.request import Request, urlopen
+
+          UTC = timezone.utc
+          JST = timezone(timedelta(hours=9), "JST")
+          repo = os.environ["REPOSITORY"]
+          workflow = os.environ["WORKFLOW_FILE"]
+          token = os.environ["GH_TOKEN"]
+
+          now_utc = datetime.now(UTC)
+          now_jst = now_utc.astimezone(JST)
+          start_jst = now_jst.replace(hour=10, minute=0, second=0, microsecond=0)
+          start_utc = start_jst.astimezone(UTC)
+
+          def request(method, url, body=None):
+              headers = {
+                  "Accept": "application/vnd.github+json",
+                  "Authorization": f"Bearer {token}",
+                  "X-GitHub-Api-Version": "2022-11-28",
+              }
+              payload = None
+              if body is not None:
+                  headers["Content-Type"] = "application/json"
+                  payload = json.dumps(body).encode("utf-8")
+              req = Request(url, data=payload, headers=headers, method=method)
+              with urlopen(req, timeout=30) as response:
+                  raw = response.read()
+                  return response.status, json.loads(raw) if raw else {}
+
+          query_start = start_utc.isoformat().replace("+00:00", "Z")
+          query = f"created={query_start}..{now_utc.isoformat().replace('+00:00', 'Z')}&per_page=50"
+          runs_url = f"https://api.github.com/repos/{repo}/actions/workflows/{workflow}/runs?{query}"
+          status, payload = request("GET", runs_url)
+          runs = payload.get("workflow_runs", [])
+
+          eligible = [
+              run for run in runs
+              if run.get("head_branch") == "main"
+              and run.get("created_at", "") >= query_start
+          ]
+          successful = [
+              run for run in eligible
+              if run.get("status") == "completed" and run.get("conclusion") == "success"
+          ]
+          active = [
+              run for run in eligible
+              if run.get("status") in {"queued", "in_progress", "waiting", "requested"}
+          ]
+
+          print(f"JST現在時刻: {now_jst.isoformat()}")
+          print(f"10:00 JST以降の対象実行: {len(eligible)}件")
+          print(f"成功: {len(successful)}件 / 実行中: {len(active)}件")
+
+          if successful:
+              print("本日の投稿処理は成功済みです。再起動しません。")
+              sys.exit(0)
+
+          if active:
+              print("投稿処理は実行中です。重複防止のため再起動しません。")
+              sys.exit(0)
+
+          dispatch_url = f"https://api.github.com/repos/{repo}/actions/workflows/{workflow}/dispatches"
+          dispatch_status, _ = request("POST", dispatch_url, {"ref": "main"})
+          if dispatch_status not in (201, 204):
+              raise RuntimeError(f"scheduled-post.ymlの再起動に失敗しました: HTTP {dispatch_status}")
+          print("成功実行がなく、実行中でもないため、scheduled-post.ymlを再起動しました。")
+          PY
