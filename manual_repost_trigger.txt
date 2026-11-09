@@ -1,1 +1,1 @@
-manual repost trigger: maintain and publish due posts; corrected queue contains 9 verified unused images for 2026-11-10 through 2026-11-12; duplicate-safe execution requested; requested at 2026-11-09T11:22:00+09:00
+manual repost trigger: run due posts for 2026-11-09 JST at 12:08; three verified unused posts added; duplicate-safe execution requested; requested at 2026-11-09T12:08:00+09:00
