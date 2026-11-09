@@ -1,1 +1,1 @@
-manual repost trigger: run due posts for 2026-11-09 JST; duplicate-safe execution requested; requested at 2026-11-09T10:28:00+09:00
+manual repost trigger: maintain and publish due posts; reservation queue populated with 9 verified unused images for 2026-11-10 through 2026-11-12; duplicate-safe execution requested; requested at 2026-11-09T11:10:00+09:00
