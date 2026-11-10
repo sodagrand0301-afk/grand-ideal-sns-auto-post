@@ -1,1 +1,1 @@
-manual automation test: verify MIME-safe X upload, isolated platform credentials, fitted image titles, pinned dependencies, reserve replenishment, and duplicate-safe publishing; requested at 2026-11-09T17:05:00+09:00
+manual repost trigger: execute due planned posts only, verify Instagram and X post IDs, and preserve duplicate safety; requested at 2026-11-10T01:59:05.957Z
