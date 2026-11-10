@@ -1,5 +1,5 @@
 {
-  "checked_at_jst": "2026-11-10T11:13:21.447620+09:00",
+  "checked_at_jst": "2026-11-10T13:25:25.579801+09:00",
   "status": "ok",
   "target_future_dates": [
     "2026-11-11",
@@ -12,10 +12,14 @@
     "2026-11-13"
   ],
   "added_dates": [],
-  "queue_available": 9,
+  "queue_available": 6,
   "buffer_target": 9,
   "buffer_replenish_trigger": 6,
-  "buffer_status": "ready",
-  "buffer_shortfall": 0,
-  "validation_errors": []
+  "buffer_status": "low",
+  "buffer_shortfall": 3,
+  "validation_errors": [
+    "既存予約・投稿と画像重複: SNS投稿用画像/2026-11-09_補充_04_住宅ローンおまとめローン.jpg",
+    "既存予約・投稿と画像重複: SNS投稿用画像/2026-11-09_補充_05_45歳から住宅ローン.jpg",
+    "既存予約・投稿と画像重複: SNS投稿用画像/2026-11-09_補充_06_日本住宅ローン落ちた.jpg"
+  ]
 }
