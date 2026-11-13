@@ -1,1 +1,1 @@
-manual retry: process only today's planned SNS posts after verifying reservation keys, platform status, image paths, and post IDs; do not re-post completed items; requested at 2026-11-12T02:48:05.497Z
+manual retry: process only today's planned SNS posts after verifying reservation keys, platform status, image paths, and post IDs; do not re-post completed items; requested at 2026-11-13T01:26:38.697Z
