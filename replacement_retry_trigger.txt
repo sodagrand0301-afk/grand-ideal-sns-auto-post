@@ -1,1 +1,1 @@
-retry only remaining seven replacement posts after exact image normalization; requested at 2026-11-19T16:22:00+09:00
+retry only replacement_09.jpg and replacement_10.jpg after valid binary upload; requested at 2026-11-19T16:27:00+09:00
