@@ -1,1 +1,1 @@
-manual retry: replace wrong-design posts from 2026-11-15 through 2026-11-19 using replacement_01.jpg through replacement_15.jpg; verify reservation keys, old post IDs, image paths, and post IDs; do not re-post completed items; requested at 2026-11-19T16:07:00+09:00
+manual retry: recheck and retry only the seven replacement posts that failed image-size validation after normalization to 1080x1440; keep successful replacements untouched; requested at 2026-11-19T16:11:00+09:00
