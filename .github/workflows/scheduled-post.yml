@@ -12,7 +12,6 @@ on:
     - cron: "3 1 * * *"    # 10:03 JST 主実行
     - cron: "*/5 1 * * *"  # 10:00〜10:55 JST 5分間隔の予備実行
     - cron: "0 2 * * *"    # 11:00 JST 最終予備実行
-    - cron: "5 7 * * *"    # 16:05 JST 差し替え再投稿の臨時実行（完了後に削除）
   workflow_dispatch:
 
 concurrency:
