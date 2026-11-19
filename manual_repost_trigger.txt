@@ -1,1 +1,1 @@
-manual retry: process only today's planned SNS posts after verifying reservation keys, platform status, image paths, and post IDs; do not re-post completed items; requested at 2026-11-19T01:34:20.704Z
+manual retry: replace wrong-design posts from 2026-11-15 through 2026-11-19 using replacement_01.jpg through replacement_15.jpg; verify reservation keys, old post IDs, image paths, and post IDs; do not re-post completed items; requested at 2026-11-19T16:07:00+09:00
