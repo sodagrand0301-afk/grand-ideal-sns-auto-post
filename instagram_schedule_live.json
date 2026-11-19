@@ -517,26 +517,24 @@
     "replaced_post_id": "18120389501108226"
   },
   "2026-11-17-10-00-Instagram-03": {
-    "status": "error",
+    "status": "planned",
     "scheduled_at_jst": "2026-11-19T16:05:00+09:00",
-    "image_path": "replacement_09.jpg",
+    "image_path": "replacement_09_v2.jpg",
     "text": "クラウドローンを検討するとき、何を確認する？\n画像では、申込み前に確認する項目を整理しています。\n確認項目は、信用情報・返済負担・返済計画です。\n信用情報を資料や数字で確認し、返済計画に反映します。\n返済負担も、住宅ローン審査と購入後の家計に関わります。\n返済計画まで含めて、無理なく返せる額を整理してください。\n検索語句だけで審査結果や借入可能額を断定することはできません。\nまずは信用情報・返済負担・返済計画を一覧にして、申込み前の確認材料をそろえます。\n金融機関や個人の状況により、審査結果や条件は異なります。\n物件資料と家計の数字を確認し、次の行動を相談しましょう。\n\nグランイデアルは不動産に関わる全ての事をサポートいたします。\n詳しくは公式LINEまでご相談ください。\n\n#住宅ローン #住宅ローン審査 #返済計画 #資金計画 #住宅購入 #家計管理 #グランイデアル",
-    "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"The image format is not supported.\",\"type\":\"OAuthException\",\"code\":36001,\"error_subcode\":2207083,\"is_transient\":false,\"error_user_title\":\"Unknown Image Format\",\"error_user_msg\":\"The image could not be processed because its format could not be recognized. This usually means the f",
+    "error": "",
     "post_id": "",
     "replace_post_id": "18129412342875005",
-    "replacement_reason": "design mismatch 2026-11-15..2026-11-19",
-    "last_attempt_utc": "2026-11-19T07:25:36.016334+00:00"
+    "replacement_reason": "design mismatch 2026-11-15..2026-11-19"
   },
   "2026-11-18-10-00-Instagram-01": {
-    "status": "error",
+    "status": "planned",
     "scheduled_at_jst": "2026-11-19T16:05:00+09:00",
-    "image_path": "replacement_10.jpg",
+    "image_path": "replacement_10_v2.jpg",
     "text": "永住権がなくても住宅ローンを検討するとき、何を確認する？\n画像では、申込み前に確認する項目を整理しています。\n確認項目は、在留資格・収入資料・返済計画です。\n在留資格を資料や数字で確認し、返済計画に反映します。\n収入資料も、住宅ローン審査と購入後の家計に関わります。\n返済計画まで含めて、無理なく返せる額を整理してください。\n検索語句だけで審査結果や借入可能額を断定することはできません。\nまずは在留資格・収入資料・返済計画を一覧にして、申込み前の確認材料をそろえます。\n金融機関や個人の状況により、審査結果や条件は異なります。\n物件資料と家計の数字を確認し、次の行動を相談しましょう。\n\nグランイデアルは不動産に関わる全ての事をサポートいたします。\n詳しくは公式LINEまでご相談ください。\n\n#住宅ローン #住宅ローン審査 #返済計画 #資金計画 #住宅購入 #家計管理 #グランイデアル",
-    "error": "メディア作成失敗 HTTP 400: {\"error\":{\"message\":\"The image format is not supported.\",\"type\":\"OAuthException\",\"code\":36001,\"error_subcode\":2207083,\"is_transient\":false,\"error_user_title\":\"Unknown Image Format\",\"error_user_msg\":\"The image could not be processed because its format could not be recognized. This usually means the f",
+    "error": "",
     "post_id": "",
     "replace_post_id": "17956829586316668",
-    "replacement_reason": "design mismatch 2026-11-15..2026-11-19",
-    "last_attempt_utc": "2026-11-19T07:25:36.723715+00:00"
+    "replacement_reason": "design mismatch 2026-11-15..2026-11-19"
   },
   "2026-11-18-10-00-Instagram-02": {
     "status": "posted",

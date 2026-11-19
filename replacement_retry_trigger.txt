@@ -1,1 +1,1 @@
-retry only replacement_09.jpg and replacement_10.jpg after valid binary upload; requested at 2026-11-19T16:27:00+09:00
+retry final two replacement posts using cache-busting filenames replacement_09_v2.jpg and replacement_10_v2.jpg; requested at 2026-11-19T16:32:00+09:00
