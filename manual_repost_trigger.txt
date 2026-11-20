@@ -1,1 +1,1 @@
-manual retry: recheck and retry only the seven replacement posts that failed image-size validation after normalization to 1080x1440; keep successful replacements untouched; requested at 2026-11-19T16:11:00+09:00
+manual retry: process only 2026-11-20 planned Instagram/X posts after verifying reservation keys, image paths, platform status, and post IDs; maintain the next three-day reservation horizon; do not re-post completed items; requested at 2026-11-20T10:31:00+09:00
