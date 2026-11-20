@@ -1,1 +1,1 @@
-manual retry: process only 2026-11-20 planned Instagram/X posts after verifying reservation keys, image paths, platform status, and post IDs; maintain the next three-day reservation horizon; do not re-post completed items; requested at 2026-11-20T10:31:00+09:00
+manual retry: 2026-11-20 planned posts use verified .jpg files; update and validate image paths, post only planned entries, then confirm 2026-11-21 through 2026-11-23 reservations; requested at 2026-11-20T10:34:00+09:00
