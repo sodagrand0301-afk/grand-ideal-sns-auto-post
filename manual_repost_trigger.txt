@@ -1,1 +1,1 @@
-manual retry: reset 2026-11-20 planned entries with verified .jpg paths; publish only these planned entries once; requested at 2026-11-20T10:45:00+09:00
+manual retry: replace the three 2026-11-20 X posts using their matching verified .jpg files; delete old X posts by replacement ID, publish once, and confirm future paths; requested at 2026-11-20T10:55:00+09:00
