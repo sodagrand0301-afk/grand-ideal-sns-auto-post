@@ -1,1 +1,1 @@
-manual retry: 2026-11-20 planned posts use verified .jpg files; update and validate image paths, post only planned entries, then confirm 2026-11-21 through 2026-11-23 reservations; requested at 2026-11-20T10:40:00+09:00
+manual retry: reset 2026-11-20 planned entries with verified .jpg paths; publish only these planned entries once; requested at 2026-11-20T10:45:00+09:00
