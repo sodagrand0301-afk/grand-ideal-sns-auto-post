@@ -42,7 +42,7 @@ def format_social_text(text: str, max_chars: int | None = None) -> str:
     if len(body) < RULES["caption"]["minimum_characters"]:
         body = f"{body}\n\n" + "\n".join(VOLUME_SUPPORT_LINES)
     hashtags = " ".join(hashtag_lines).strip()
-    result = "\n\n".join(part for part in (body, BRAND_CTA, OFFICIAL_LINE_CTA, hashtags) if part)
+    result = "\n\n".join(part for part in (body, f"{BRAND_CTA}\n{OFFICIAL_LINE_CTA}", hashtags) if part)
     if max_chars is not None and len(result) > max_chars:
         suffix = "\n\n".join(part for part in (BRAND_CTA, OFFICIAL_LINE_CTA, hashtags) if part)
         available = max_chars - len(suffix) - 2
