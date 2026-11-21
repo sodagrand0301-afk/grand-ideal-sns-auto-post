@@ -69,7 +69,7 @@ def validate_caption(text: str, max_chars: int) -> list[str]:
     minimum_hashtags = RULES["caption"]["minimum_hashtags"]
     if len(hashtags) < minimum_hashtags:
         errors.append(f"ハッシュタグが{minimum_hashtags}個未満です")
-    footer = f"{BRAND_CTA}\n\n{OFFICIAL_LINE_CTA}\n\n"
+    footer = f"{BRAND_CTA}\n{OFFICIAL_LINE_CTA}\n\n"
     if footer not in normalized:
         errors.append("CTAの順序または空行がルールと異なります")
     if hashtags and normalized.rfind(hashtags[0]) < normalized.find(OFFICIAL_LINE_CTA):
