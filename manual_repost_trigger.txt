@@ -1,1 +1,1 @@
-manual retry: replace the three 2026-11-20 X posts using their matching verified .jpg files; delete old X posts by replacement ID, publish once, and confirm future paths; requested at 2026-11-20T10:55:00+09:00
+manual retry: 2026-11-21 planned posts require due-post recovery and confirmation on Instagram/X; publish only planned entries once; verify 2026-11-22 through 2026-11-24 horizon; requested at 2026-11-21T10:34:00+09:00
