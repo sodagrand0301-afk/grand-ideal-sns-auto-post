@@ -36,7 +36,7 @@ def format_social_text(text: str, max_chars: int | None = None) -> str:
         line = re.sub(r"[ \t]+", " ", line).strip()
         if line and line != OFFICIAL_LINE_CTA and line != BRAND_CTA:
             lines.append(line)
-    body_lines = [line for line in lines if not line.startswith("#") and "公式LINEまでご相談ください" not in line and not line.startswith("グランイデアルでは") and not line.startswith("グランイデアルが") and line not in VOLUME_SUPPORT_LINES]
+    body_lines = [line for line in lines if not line.startswith("#") and "公式LINEまでご相談ください" not in line and not line.startswith("グランイデアルでは") and not line.startswith("グランイデアルが") and not line.startswith("株式会社グランイデアルは") and line not in VOLUME_SUPPORT_LINES]
     hashtag_lines = [line for line in lines if line.startswith("#")]
     body = "\n".join(body_lines).strip()
     if len(body) < RULES["caption"]["minimum_characters"]:
