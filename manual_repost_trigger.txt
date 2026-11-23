@@ -1,1 +1,1 @@
-manual retry: reset 2026-11-21 Instagram/X entries to planned after fixing CTA validator; publish only planned entries once; verify 2026-11-22 through 2026-11-24 horizon; requested at 2026-11-21T10:40:00+09:00
+manual retry: 2026-11-23 planned posts require due-post recovery and confirmation on Instagram/X; publish only planned entries once; verify 2026-11-24 through 2026-11-26 horizon; requested at 2026-11-23T10:26:00+09:00
